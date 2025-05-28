@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Logo from "../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import { FaCog, FaBell, FaBars, FaTicketAlt } from "react-icons/fa";
@@ -8,8 +8,24 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <header className="w-full bg-[#fdfffc] shadow-md flex items-center px-4 h-30">
+    <header className="w-full bg-[#fdfffc] shadow-md flex items-center px-4 h-20 relative z-50">
       {/* Left: Hamburger + Logo */}
       <div className="flex items-center space-x-3 md:space-x-4">
         <button
@@ -44,42 +60,60 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
         ))}
       </nav>
 
-      {/* Right: Icons */}
-      <div className="flex items-center space-x-5 pr-10">
-  {/* Settings Link */}
+      {/* Right: Icons + Dropdown Button */}
+      <div className="flex items-center space-x-5 pr-6 relative" ref={dropdownRef}>
+        {/* Settings Link */}
         <NavLink
-            to="/settings"
-            className={({ isActive }) =>
+          to="/settings"
+          className={({ isActive }) =>
             `relative text-black hover:text-red-600 group text-xl p-2 transition
             ${isActive ? "after:w-full" : ""}`
-            }
+          }
         >
-            <FaCog />
-            <span className="absolute left-0 -bottom-1 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full"></span>
+          <FaCog />
+          <span className="absolute left-0 -bottom-1 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full"></span>
         </NavLink>
 
         {/* Notifications Link */}
         <NavLink
-            to="/notifications"
-            className={({ isActive }) =>
+          to="/notifications"
+          className={({ isActive }) =>
             `relative text-black hover:text-red-600 group text-xl p-2 transition
             ${isActive ? "after:w-full" : ""}`
-            }
+          }
         >
-            <FaBell />
-            <span className="absolute left-0 -bottom-1 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full"></span>
+          <FaBell />
+          <span className="absolute left-0 -bottom-1 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full"></span>
         </NavLink>
 
-        <div className="mb-6 flex justify-center pt-7 text-lg font-jura">
-          <Link to="/create-ticket">
-            <button className="flex items-center gap-2 bg-teal-500 hover:bg-teal-700 text-white font-semibold py-2 px-3 rounded-lg shadow-lg transition-transform transform hover:scale-105">
-              <FaTicketAlt className="text-xl" />
-              Create a New Service Request
-            </button>
-          </Link>
-        </div>
+        {/* Dropdown Create SR Button */}
+        <div className="relative">
+          <button
+            onClick={() => setShowDropdown(!showDropdown)}
+            className="flex items-center gap-3 bg-teal-500 hover:bg-teal-700 text-white font-semibold py-2 px-5 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          >
+            <FaTicketAlt className="text-2xl" />
+            Create 
+          </button>
 
+          {showDropdown && (
+            <div className="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50">
+              <Link
+                to="/create-sr"
+                className="block px-4 py-2 text-green-600 hover:bg-gray-100"
+              >
+                New Service Request
+              </Link>
+              <Link
+                to="/create-ft"
+                className="block px-4 py-2 text-blue-500 hover:bg-gray-100"
+              >
+                Faulty Ticket
+              </Link>
+            </div>
+          )}
         </div>
+      </div>
     </header>
   );
 };

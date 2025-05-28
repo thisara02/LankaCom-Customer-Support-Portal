@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 
 
-const CreateSR = () => {
+const CreateFT = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -34,4 +34,4 @@ const CreateSR = () => {
   );
 };
 
-export default CreateSR;
+export default CreateFT;

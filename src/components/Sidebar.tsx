@@ -3,6 +3,7 @@ import { FaTachometerAlt, FaHistory} from "react-icons/fa";
 import Profile from "../assets/test-profile.jpg";
 import { useNavigate } from "react-router-dom";
 import { FaTicket } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 // Sample user data — you can replace these with real props or context
 const user = {
@@ -32,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
     >
       <div className="h-full flex flex-col p-4">
         {/* User Profile */}
-        <div className="flex items-center space-x-4 mb-6 pb-4 border-b pt-10 pb-10">
+        <div className="flex items-center space-x-4 mb-6 pb-4 border-b pt-10">
         <img
             src={Profile}
             alt="User"
@@ -48,28 +49,42 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
 
         
         {/* Navigation Links */}
-        <nav className="space-y-7 pt-5">
-          <a
-            href="/home"
-            className="flex items-center space-x-3 text-gray-800 hover:text-red-600 transition font-jura"
+        <nav className="space-y-7 pt-5 pl-5">
+          <NavLink
+            to="/home"
+            className={({ isActive }) =>
+              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              hover:text-red-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-red-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-red-600' : 'after:w-0 group-hover:after:w-full'}`
+            }
           >
             <FaTachometerAlt />
             <span>Dashboard</span>
-          </a>
-          <a
-            href="/pending"
-            className="flex items-center space-x-3 text-gray-800 hover:text-red-600 transition font-jura"
+          </NavLink>
+
+          <NavLink
+            to="/pending"
+            className={({ isActive }) =>
+              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              hover:text-red-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-red-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-red-600' : 'after:w-0 group-hover:after:w-full'}`
+            }
           >
             <FaTicket />
-            <span>Pending Requests</span>
-          </a>
-          <a
-            href="/history"
-            className="flex items-center space-x-3 text-gray-800 hover:text-red-600 transition font-jura"
+            <span>Ongoing Requests Update</span>
+          </NavLink>
+
+          <NavLink
+            to="/history"
+            className={({ isActive }) =>
+              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              hover:text-red-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-red-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-red-600' : 'after:w-0 group-hover:after:w-full'}`
+            }
           >
             <FaHistory />
             <span>Request History</span>
-          </a>
+          </NavLink>
         </nav>
 
         <div className="mt-auto pt-6">

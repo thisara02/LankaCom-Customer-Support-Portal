@@ -2,8 +2,7 @@ import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 
-
-const CreateSR = () => {
+const OnTicketView = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -11,7 +10,7 @@ const CreateSR = () => {
   };
 
   return (
-     <div className="h-screen w-screen flex overflow-hidden">
+    <div className="h-screen w-screen flex overflow-hidden">
       {/* Sidebar (fixed size) */}
       <div className="flex-shrink-0">
         <Sidebar isOpen={isSidebarOpen} />
@@ -34,4 +33,4 @@ const CreateSR = () => {
   );
 };
 
-export default CreateSR;
+export default OnTicketView;

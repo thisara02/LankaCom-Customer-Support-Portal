@@ -10,6 +10,11 @@ import Notifications from "./Pages/Notifications";
 import Landing from "./Pages/Landing";
 import Pending from "./Pages/PendingRequests";
 import History from "./Pages/RequestHistory";
+import ViewFT from "./Pages/ViewFT"
+import CreateSR from "./Pages/CreateSR"
+import CreateFT from "./Pages/CreateFT"
+import ViewSR from "./Pages/ViewSR"
+
 
 const App: React.FC = () => {
   return (
@@ -27,6 +32,11 @@ const App: React.FC = () => {
       <Route path="/land" element={<Landing />} />
       <Route path="/pending" element={<Pending />} />
       <Route path="/history" element={<History />} />
+      <Route path="/view-ft" element={<ViewFT />} />
+      <Route path="/view-sr" element={<ViewSR />} />
+      <Route path="/create-sr" element={<CreateSR />} />
+      <Route path="/create-ft" element={<CreateFT />} />
+      
     </Routes>
     </AnimatePresence>
   );

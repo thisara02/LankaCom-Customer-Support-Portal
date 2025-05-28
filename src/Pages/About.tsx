@@ -11,16 +11,24 @@ const About = () => {
   };
 
   return (
-    <div className="h-screen w-screen flex bg-gray-100 overflow-hidden">
-      {/* Sidebar */}
+     <div className="h-screen w-screen flex overflow-hidden">
+      {/* Sidebar (fixed size) */}
       <div className="flex-shrink-0">
         <Sidebar isOpen={isSidebarOpen} />
       </div>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col w-full">
-        {/* Navbar */}
-        <Navbar toggleSidebar={toggleSidebar} />
+      {/* Main content area */}
+      <div className="flex-1 flex flex-col h-screen min-h-0">
+        {/* Navbar (fixed height) */}
+        <div className="flex-shrink-0">
+          <Navbar toggleSidebar={toggleSidebar} />
+        </div>
+
+        {/* Scrollable Content */}
+        <div className="flex-1 overflow-y-auto bg-gray-100">
+
+
+        </div>
       </div>
     </div>
   );
