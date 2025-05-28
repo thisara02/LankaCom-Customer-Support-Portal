@@ -90,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
         <div className="relative">
           <button
             onClick={() => setShowDropdown(!showDropdown)}
-            className="flex items-center gap-3 bg-teal-500 hover:bg-teal-700 text-white font-semibold py-2 px-5 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            className="flex items-center gap-3 bg-teal-500 hover:bg-teal-700 text-white font-semibold py-2 px-5 rounded-lg shadow-lg transition-transform transform hover:scale-105 font-jura"
           >
             <FaTicketAlt className="text-2xl" />
             Create 

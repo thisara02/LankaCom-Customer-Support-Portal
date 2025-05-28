@@ -40,9 +40,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
             className="w-16 h-16 rounded-full object-cover border border-gray-300"
         />
         <div>
-            <p className="font-semibold text-gray-800 text-base">{user.name}</p>
+            <p className="font-semibold text-gray-800 text-base font-jura">{user.name}</p>
             {/* <p className="text-gray-500 text-sm">{user.email}</p> */}
-            <p className="text-gray-500 text-sm">{user.company}</p>
+            <p className="text-gray-500 text-sm font-jura">{user.company}</p>
             
         </div>
         </div>
@@ -89,7 +89,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
 
         <div className="mt-auto pt-6">
           <button 
-          className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition duration-200"
+          className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition duration-200 font-jura"
           onClick={handleLogout}
           >
             Logout
