@@ -60,7 +60,7 @@ const Contact = () => {
 
         {/* Scrollable Content */}
         {/* This div correctly has overflow-y-auto to enable scrolling */}
-        <div className="flex-1 overflow-y-auto bg-gray-100 px-80 ">
+        <div className="flex-1 overflow-y-auto bg-gray-100 px-80 pt-10">
 
           <div className="w-full bg-white p-6 mx-auto rounded shadow text-gray-800 text-lg leading-relaxed font-jura px-10">
 

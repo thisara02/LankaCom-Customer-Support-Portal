@@ -1,22 +1,22 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import Login from "./Pages/Login";
-import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
-import Services from "./Pages/Services";
-import Settings from "./Pages/Settings";
-import Notifications from "./Pages/Notifications";
-import Landing from "./Pages/Landing";
-import Pending from "./Pages/PendingRequests";
-import History from "./Pages/RequestHistory";
-import ViewFT from "./Pages/ViewFT"
-import CreateSR from "./Pages/CreateSR"
-import CreateFT from "./Pages/CreateFT"
-import ViewSR from "./Pages/ViewSR"
-import ViewOngoing from "./Pages/ViewOngoing"
-import CusProfile from "./Pages/Profile"
-import ViewTicket from "./Pages/ViewTicket"
+import Login from "./Pages/Customer/Login";
+import Home from "./Pages/Customer/Home";
+import About from "./Pages/Customer/About";
+import Contact from "./Pages/Customer/Contact";
+import Services from "./Pages/Customer/Services";
+import Settings from "./Pages/Customer/Settings";
+import Notifications from "./Pages/Customer/Notifications";
+import Landing from "./Pages/Customer/Landing";
+import Pending from "./Pages/Customer/PendingRequests";
+import History from "./Pages/Customer/RequestHistory";
+import ViewFT from "./Pages/Customer/ViewFT"
+import CreateSR from "./Pages/Customer/CreateSR"
+import CreateFT from "./Pages/Customer/CreateFT"
+import ViewSR from "./Pages/Customer/ViewSR"
+import ViewOngoing from "./Pages/Customer/ViewOngoing"
+import CusProfile from "./Pages/Customer/Profile"
+import ViewTicket from "./Pages/Customer/ViewTicket"
 
 
 const App: React.FC = () => {

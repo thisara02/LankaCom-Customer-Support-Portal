@@ -27,7 +27,7 @@ const About = () => {
         {/* Scrollable Content */}
         <div className="flex-1 overflow-y-auto bg-gray-100 px-20 py-10">
 
-          <div className="w-full bg-white p-6 mx-auto rounded shadow text-gray-800 text-lg leading-relaxed font-jura px-10">
+          <div className="w-3/4 bg-white p-6 mx-auto rounded shadow text-gray-800 text-lg leading-relaxed font-jura px-10">
             
 
             <div className="w-full lg:w-full flex justify-center items-center">

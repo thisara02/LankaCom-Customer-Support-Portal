@@ -16,24 +16,24 @@ const ServiceBenefits = () => {
       icon: "👨‍💼",
       title: "Certified Expertise",
       description:
-        "Our security experts hold top certifications from Fortinet, Cisco, Sophos, PaloAlto, SonicWall, and more.",
+        "Our team of security professionals holds the highest certifications in the industry, including Fortinet ,Cisco , Sophos Certified Engineer, Palo Alto Networks, SonicWall and more. We combine these world-class credentials with real-world experience to deliver security you can trust",
     },
     {
       icon: "🛡️",
       title: "Complete Solutions",
       description:
-        "From VPNs to SD-WAN, we manage your entire network security ecosystem.",
+        "We go beyond simple fixes—our approach covers your entire network security lifecycle. From secure remote access with VPNs to next-gen SD-WAN solutions, we ensure your network is not only protected, but also optimized for performance and growth",
     },
     {
       icon: "🎧",
       title: 'As easy as "Hello"',
       description:
-        'Just say "Hello" to get started—security and peace of mind are one call away.',
+        'Getting started is as simple as reaching out. With just a Hello, you unlock a team of experts ready to guide you, protect your assets, and deliver the peace of mind you deserve—all tailored to your needs',
     },
   ];
 
   return (
-    <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div className="w-3/4 mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <h2 className="text-3xl font-bold text-center mb-10 text-black font-jura">
         Benefits Of Managed Security Service
       </h2>
@@ -84,7 +84,7 @@ const Services = () => {
         <div className="flex-1 overflow-y-auto bg-gray-100 px-10">
           <ServiceBenefits />
 
-          <div className="w-full bg-white p-6 mx-auto rounded shadow text-gray-800 text-lg leading-relaxed font-jura px-10">
+          <div className="w-3/4 bg-white p-6 mx-auto rounded shadow text-gray-800 text-lg leading-relaxed font-jura px-10">
           
             <h1 className="text-3xl font-bold text-center text-Black mb-2 font-jura pt-7 pb-2">
             Our department offers a wide range of services designed to detect, defend, and respond to cyber threats with precision and speed. We specialize in:
