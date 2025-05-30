@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import LandingVideo from "../videos/land.mp4";
+import LandingVideo from "../../videos/land.mp4";
 // import Logo from "../assets/logo.png"; // Adjust if needed
 
 const Landing: React.FC = () => {

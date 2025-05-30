@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../../components/Sidebar";
+import Navbar from "../../components/Navbar";
 
 const TicketView = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);

@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
-import ProfileImage from "../assets/test-profile.jpg"; // Replace with actual path
+import Sidebar from "../../components/Sidebar";
+import Navbar from "../../components/Navbar";
+import ProfileImage from "../../assets/test-profile.jpg"; // Replace with actual path
 import { FaCamera } from "react-icons/fa";
 
 const CusProfile = () => {

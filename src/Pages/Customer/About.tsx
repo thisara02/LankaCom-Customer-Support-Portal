@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
-import Banner from "../assets/about-banner.jpg"
+import Sidebar from "../../components/Sidebar";
+import Navbar from "../../components/Navbar";
+import Banner from "../../assets/about-banner.jpg"
 
 const About = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);

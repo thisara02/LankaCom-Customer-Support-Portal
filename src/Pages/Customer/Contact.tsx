@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
-import ContactImage from "../assets/contact-us-banner.jpg";
+import Sidebar from "../../components/Sidebar";
+import Navbar from "../../components/Navbar";
+import ContactImage from "../../assets/contact-us-banner.jpg";
 
 interface GoogleMapEmbedProps {
   src: string;
