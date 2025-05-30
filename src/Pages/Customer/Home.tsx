@@ -46,10 +46,10 @@ const Home = () => {
           {/* Dashboard Cards */}
           <div className="p-4 grid grid-cols-1 md:grid-cols-4 gap-8 px-20 pt-10 font-jura">
             {[
-              { label: "Pending SR Count", count: 3 },
-              { label: "Ongoing SR Count", count: 2 },
-              { label: "Balance SR Count", count: 5 },
-              { label: "Used SR Count", count: 14 }
+              { label: "Pending Ticket Count", count: 3 },
+              { label: "Ongoing Ticket Count", count: 2 },
+              { label: "Balance Ticket Count (This Month)", count: 5 },
+              { label: "Used Ticket Count (This Month)", count: 14 }
             ].map((item, index) => (
               <div key={index} className="bg-white rounded-xl shadow-md p-10">
                 <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">

@@ -1,11 +1,11 @@
 import { FaEnvelope, FaLock } from "react-icons/fa";
-import Logo from "../assets/logo.png";
-import SecurityImage from "../assets/security-image.webp";
-import BgImage from "../assets/login-bg.jpg"; 
+import Logo from "../../assets/logo.png";
+import SecurityImage from "../../assets/security-image.webp";
+import BgImage from "../../assets/login-bg.jpg"; 
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";// Update to your background image path
 
-const Login = () => {
+const AdminLogin = () => {
     const navigate = useNavigate();
 
   return (
@@ -30,10 +30,10 @@ const Login = () => {
             </div>
 
             <p className="text-center text-xl text-red-500 font-semibold pt-4 pb-4 font-jura">
-              Cyber Security Operations
+              Cyber Security Operations Portal
             </p>
             <h2 className="text-center text-3xl font-jura font-bold text-gray-800 pb-4">
-              Customer Support Portal
+              Customer Admin Dashboard
             </h2>
             <p className="text-left text-sm text-gray-500 mb-6 font-jura">
               Please sign in to continue
@@ -73,7 +73,7 @@ const Login = () => {
             </form>
 
             <div className="text-center mt-4">
-              <a href="#" className="text-red-500 text-sm hover:underline font-jura">
+              <a href="/forgot-pass" className="text-red-500 text-sm hover:underline font-jura">
                 Forgot Password?
               </a>
             </div>
@@ -94,4 +94,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default AdminLogin;
