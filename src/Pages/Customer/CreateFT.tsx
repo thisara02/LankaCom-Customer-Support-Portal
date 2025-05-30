@@ -2,8 +2,37 @@ import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import { FaUser, FaExclamationTriangle, FaFileAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CreateFaultyRequest = () => {
+
+  const navigate = useNavigate();
+
+  const CreatedFT = () => {
+        Swal.fire({
+          title: "Your Faulty Error is reported Sucessfully",
+          text: "Your request was sent to the engineers wait for their respond.",
+          icon: "info",
+          showCancelButton: false,
+          confirmButtonColor: "#f5365c",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Continue",
+          cancelButtonText: "Cancel",
+          customClass: {
+          popup: "swal2-text-black",
+          confirmButton: "swal2-confirm-button",
+          cancelButton: "swal2-cancel-button"}
+  
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Perform logout logic (e.g., clear auth tokens, call API, etc.)
+            // Then navigate to the login page
+            navigate("/home");
+          }
+        });
+      };
+      
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
@@ -144,7 +173,7 @@ const CreateFaultyRequest = () => {
 
             {/* Submit Button */}
             <div className="text-left">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition mt-10 p-5 font-jura">
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-teal-700 transition mt-10 p-5 font-jura" onClick={CreatedFT}>
                 Submit Request
               </button>
             </div>

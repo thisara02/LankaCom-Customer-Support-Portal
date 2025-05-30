@@ -4,6 +4,7 @@ import Profile from "../assets/test-profile.jpg";
 import { useNavigate } from "react-router-dom";
 import { FaTicket } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
+import Swal from "sweetalert2";
 
 // Sample user data — you can replace these with real props or context
 const user = {
@@ -12,6 +13,7 @@ const user = {
   company:"Lanka Communication Services",
 };
 
+
 interface SidebarProps {
   isOpen: boolean;
 }
@@ -19,12 +21,29 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
     const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Optional: Clear auth tokens or local storage here
-    // localStorage.removeItem('authToken');
+    const handleLogout = () => {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "Do you want to logout?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, logout",
+        cancelButtonText: "Cancel",
+        customClass: {
+        popup: "swal2-text-black",
+        confirmButton: "swal2-confirm-button",
+        cancelButton: "swal2-cancel-button"}
 
-    navigate("/land");
-  };
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Perform logout logic (e.g., clear auth tokens, call API, etc.)
+          // Then navigate to the login page
+          navigate("/login");
+        }
+      });
+    };
   return (
     <aside
       className={`bg-white h-screen border-r shadow-md transition-all duration-300 ${

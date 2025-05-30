@@ -3,8 +3,60 @@ import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import ProfileImage from "../../assets/test-profile.jpg"; // Replace with actual path
 import { FaCamera } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CusProfile = () => {
+
+  const navigate = useNavigate();
+
+  const ProfileEdited = () => {
+        Swal.fire({
+          title: "Your Changes Saved Sucessfully",
+          text: "Your profile changes has been saved sucessfully",
+          icon: "info",
+          showCancelButton: false,
+          confirmButtonColor: "#f5365c",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Continue",
+          cancelButtonText: "Cancel",
+          customClass: {
+          popup: "swal2-text-black",
+          confirmButton: "swal2-confirm-button",
+          cancelButton: "swal2-cancel-button"}
+  
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Perform logout logic (e.g., clear auth tokens, call API, etc.)
+            // Then navigate to the login page
+            navigate("/profile");
+          }
+        });
+      };
+
+      const NewPass = () => {
+        Swal.fire({
+          title: "Your Password Changed Sucessfully",
+          text: "Your profile password has been changed sucessfully.",
+          icon: "info",
+          showCancelButton: false,
+          confirmButtonColor: "#f5365c",
+          cancelButtonColor: "#3085d6",
+          confirmButtonText: "Continue",
+          cancelButtonText: "Cancel",
+          customClass: {
+          popup: "swal2-text-black",
+          confirmButton: "swal2-confirm-button",
+          cancelButton: "swal2-cancel-button"}
+  
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Perform logout logic (e.g., clear auth tokens, call API, etc.)
+            // Then navigate to the login page
+            navigate("/profile");
+          }
+        });
+      };
 
     const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -216,7 +268,7 @@ const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
 
             <div className="mt-6 flex justify-end">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition font-jura">
+              <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition font-jura" onClick={ProfileEdited}>
                 Save Edits
               </button>
             </div>
@@ -291,7 +343,7 @@ const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
             </div>
 
             <div className="mt-4 flex justify-end">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg--700 transition font-jura">
+              <button className="bg-blue-600 text-white px-6 py-2 rounded hover:bg--700 transition font-jura" onClick={NewPass}>
                 Change Password
               </button>
             </div>
