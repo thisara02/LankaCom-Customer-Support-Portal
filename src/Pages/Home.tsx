@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import BannerImage from "../assets/banner.jpg";
 import { Link } from "react-router-dom";
+import { FaTicketAlt } from "react-icons/fa";
 
 const Home = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -72,7 +73,8 @@ const Home = () => {
                   return (
                     <Link to={route} key={i}>
                       <div className={`border-l-4 ${borderColor} p-4 rounded shadow bg-white hover:bg-gray-50 mt-5`}>
-                        <h3 className={`text-lg font-semibold ${titleColor}`}>
+                        <h3 className={`flex items-center gap-2 font-semibold ${titleColor}`}>
+                          <FaTicketAlt className="h-5 w-5" />
                           Ticket #{10001 + i}
                         </h3>
                         <p className={`text-sm ${textColor}`}>
@@ -110,7 +112,8 @@ const Home = () => {
                   return (
                     <Link to={route} key={i}>
                       <div className={`border-l-4 ${borderColor} p-4 rounded shadow bg-white hover:bg-gray-50 mt-5`}>
-                        <h3 className={`text-lg font-semibold ${titleColor}`}>
+                        <h3 className={`flex items-center gap-2 text-lg font-semibold ${titleColor}`}>
+                          <FaTicketAlt className="h-5 w-5" />
                           Ticket #{20001 + i}
                         </h3>
                         <p className={`text-sm ${textColor}`}>

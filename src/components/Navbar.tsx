@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import Logo from "../assets/logo.png";
-import { Link, NavLink } from "react-router-dom";
-import { FaCog, FaBell, FaBars, FaTicketAlt } from "react-icons/fa";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { FaBell, FaBars, FaTicketAlt } from "react-icons/fa";
+// import { FaCog} from "react-icons/fa"; 
 
 interface NavbarProps {
   toggleSidebar: () => void;
@@ -10,6 +11,8 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -25,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   }, []);
 
   return (
-    <header className="w-full bg-[#fdfffc] shadow-md flex items-center px-4 h-20 relative z-50">
+    <header className="w-full bg-white shadow-md flex items-center px-4 h-20 relative z-50">
       {/* Left: Hamburger + Logo */}
       <div className="flex items-center space-x-3 md:space-x-4">
         <button
@@ -34,7 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
         >
           <FaBars />
         </button>
-        <img src={Logo} alt="Logo" className="h-10" />
+        <img src={Logo} alt="Logo" className="h-10" onClick={() => navigate("/home")}/>
       </div>
 
       {/* Center: Navigation Links */}
@@ -63,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
       {/* Right: Icons + Dropdown Button */}
       <div className="flex items-center space-x-5 pr-6 relative" ref={dropdownRef}>
         {/* Settings Link */}
-        <NavLink
+        {/* <NavLink
           to="/settings"
           className={({ isActive }) =>
             `relative text-black hover:text-red-600 group text-xl p-2 transition
@@ -72,7 +75,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
         >
           <FaCog />
           <span className="absolute left-0 -bottom-1 h-0.5 bg-red-500 transition-all duration-300 w-0 group-hover:w-full"></span>
-        </NavLink>
+        </NavLink> */}
 
         {/* Notifications Link */}
         <NavLink

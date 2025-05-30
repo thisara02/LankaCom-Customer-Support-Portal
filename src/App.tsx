@@ -14,6 +14,9 @@ import ViewFT from "./Pages/ViewFT"
 import CreateSR from "./Pages/CreateSR"
 import CreateFT from "./Pages/CreateFT"
 import ViewSR from "./Pages/ViewSR"
+import ViewOngoing from "./Pages/ViewOngoing"
+import CusProfile from "./Pages/Profile"
+import ViewTicket from "./Pages/ViewTicket"
 
 
 const App: React.FC = () => {
@@ -36,6 +39,9 @@ const App: React.FC = () => {
       <Route path="/view-sr" element={<ViewSR />} />
       <Route path="/create-sr" element={<CreateSR />} />
       <Route path="/create-ft" element={<CreateFT />} />
+      <Route path="/viewon" element={<ViewOngoing />} />
+      <Route path="/profile" element={<CusProfile />} />
+      <Route path="/view-history" element={<ViewTicket />} />
       
     </Routes>
     </AnimatePresence>

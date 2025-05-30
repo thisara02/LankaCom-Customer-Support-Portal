@@ -25,14 +25,14 @@ const Login = () => {
         {/* Left Panel - Login */}
         <div className="w-full lg:w-3/5 flex items-center justify-center p-4 bg-white">
           <div className="w-full max-w-md">
-            <div className="flex justify-center mb-2 pb-5">
+            <div className="flex justify-center mt-4 pb-2">
               <img src={Logo} alt="LankaCom" className="h-14" />
             </div>
 
             <p className="text-center text-xl text-red-500 font-semibold pt-4 pb-4 font-jura">
               Cyber Security Operations
             </p>
-            <h2 className="text-center text-4xl font-jura font-bold text-gray-800 pb-8">
+            <h2 className="text-center text-3xl font-jura font-bold text-gray-800 pb-4">
               Customer Support Portal
             </h2>
             <p className="text-left text-sm text-gray-500 mb-6 font-jura">

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
+import { FaTicketAlt } from "react-icons/fa";
+
 
 type Ticket = {
   id: string;
@@ -19,6 +22,8 @@ const Pending = () => {
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
+
+  const navigate = useNavigate();
 
   // Sample tickets data (replace with your actual data source)
   const tickets: Ticket[] = [
@@ -89,9 +94,9 @@ const Pending = () => {
         <Navbar toggleSidebar={toggleSidebar} />
 
         {/* Tickets Grid */}
-        <main className="p-6 flex-1 overflow-auto">
+        <main className="p-6 flex-1 overflow-auto font-jura">
           <div className="mb-8 bg-white p-6 rounded-lg shadow-md mx-10 mt-5">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 border-b-4 border-blue-500 inline-block pb-2 font-jura mb-10">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 border-b-4 inline-block pb-2 font-jura mb-10">
               Ongoing Tickets 
             </h1>
           
@@ -102,13 +107,17 @@ const Pending = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {tickets.map((ticket) => (
                 <div
+                  onClick={() => navigate("/viewon")} // Navigate on click
                   key={ticket.id}
-                  className={`bg-white text-black shadow-md rounded-lg p-6 border ${getBorderColorClass(
+                  className={`bg-white text-black shadow-md rounded-lg p-6 border-l-8 ${getBorderColorClass(
                     ticket.ticketType
                   )}`}
                 >
-                  <h2 className="text-xl font-bold mb-1">{ticket.id}</h2>
-                  <h2 className="text-xl font-bold mb-1">{ticket.inquiryType}</h2>
+                    
+                  <h2 className="text-xl font-bold mb-1 flex items-center justify-between">
+                  <span>{ticket.id} - {ticket.inquiryType}</span>
+                  <FaTicketAlt className="text-2xl" />
+                </h2>
                   <p className="text-l font-bold text-gray-600 mb-3">{ticket.ticketType}</p>
                   <p className="text-gray-700 mb-3">{ticket.description}</p>
 

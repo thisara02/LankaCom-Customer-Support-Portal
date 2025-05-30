@@ -28,19 +28,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
   return (
     <aside
       className={`bg-white h-screen border-r shadow-md transition-all duration-300 ${
-        isOpen ? "w-70" : "w-0 md:w-70"
+        isOpen ? "w-60" : "w-0 md:w-70"
       } overflow-hidden`}
     >
-      <div className="h-full flex flex-col p-4">
+      <div className="h-full flex flex-col p-2">
         {/* User Profile */}
-        <div className="flex items-center space-x-4 mb-6 pb-4 border-b pt-10">
+        <div className="flex items-center space-x-4 mb-6 pb-4 border-b pt-10 justify-center">
+          <div>
         <img
             src={Profile}
             alt="User"
-            className="w-16 h-16 rounded-full object-cover border border-gray-300"
+            className="w-16 h-16 rounded-full object-cover border border-gray-300 mx-auto cursor-pointer mb-2"
+            onClick={() => navigate("/profile")}
         />
-        <div>
-            <p className="font-semibold text-gray-800 text-base font-jura">{user.name}</p>
+        
+            <p className="font-semibold text-gray-800 text-base font-jura text-center">{user.name}</p>
             {/* <p className="text-gray-500 text-sm">{user.email}</p> */}
             <p className="text-gray-500 text-sm font-jura">{user.company}</p>
             
