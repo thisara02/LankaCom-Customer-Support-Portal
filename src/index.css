@@ -90,16 +90,24 @@ button:focus-visible {
   color: black !important;
 }
 
-.swal2-confirm-button,
+.swal2-confirm-button2,
 .swal2-cancel-button {
   color: white !important;
-   background-color: rgb(9, 158, 96) !important;/* confirm: red */
+   background-color: rgb(165, 38, 38) !important;/* confirm: red */
   border: none !important;
   border-radius: 4px !important;
   padding: 8px 16px !important;
   font-weight: bold !important;
 }
 
+.swal2-confirm-button {
+  color: white !important;
+   background-color: rgb(8, 71, 112) !important;/* confirm: red */
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  font-weight: bold !important;
+}
 .swal2-cancel-button {
   background-color: #3085d6 !important; /* cancel: blue */
 }

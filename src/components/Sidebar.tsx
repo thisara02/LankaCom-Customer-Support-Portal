@@ -27,13 +27,13 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
         text: "Do you want to logout?",
         icon: "question",
         showCancelButton: true,
-        confirmButtonColor: "#d33",
+        confirmButtonColor: "#000000",
         cancelButtonColor: "#3085d6",
         confirmButtonText: "Yes, logout",
         cancelButtonText: "Cancel",
         customClass: {
         popup: "swal2-text-black",
-        confirmButton: "swal2-confirm-button",
+        confirmButton: "swal2-confirm-button2",
         cancelButton: "swal2-cancel-button"}
 
       }).then((result) => {

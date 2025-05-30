@@ -7,6 +7,9 @@ import { FaTicketAlt } from "react-icons/fa";
 
 const Home = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [pendingTab, setPendingTab] = useState<"service" | "faulty">("service");
+  const [ongoingTab, setOngoingTab] = useState<"service" | "faulty">("service");
+
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
@@ -60,85 +63,154 @@ const Home = () => {
           {/* Ticket Sections */}
           <div className="flex flex-col md:flex-row gap-6 px-20 mt-8 pb-10 font-jura">
             {/* Pending Tickets */}
+            {/* Pending Tickets with Tabs */}
             <div className="w-full md:w-1/2">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Pending Tickets</h2>
-              <div className="space-y-4">
-                {[...Array(6)].map((_, i) => {
-                  const ticketType = i % 2 === 0 ? "Service Request" : "Faulty Ticket";
-                  const route = ticketType === "Service Request" ? "/view-sr" : "/view-ft";
-                  const borderColor = ticketType === "Service Request" ? "border-green-500" : "border-blue-500";
-                  const titleColor = ticketType === "Service Request" ? "text-green-800" : "text-blue-800";
-                  const textColor = ticketType === "Service Request" ? "text-green-700" : "text-blue-700";
 
-                  return (
-                    <Link to={route} key={i}>
-                      <div className={`border-l-4 ${borderColor} p-4 rounded shadow bg-white hover:bg-gray-50 mt-5`}>
-                        <h3 className={`flex items-center gap-2 font-semibold ${titleColor}`}>
+              {/* Tabs */}
+              <div className="flex space-x-4 mb-4">
+                <button
+                  onClick={() => setPendingTab("service")}
+                  className={`px-4 py-2 rounded font-medium ${
+                    pendingTab === "service"
+                      ? "bg-green-600 text-white"
+                      : "bg-gray-200 text-gray-800"
+                  }`}
+                >
+                  Service Requests
+                </button>
+                <button
+                  onClick={() => setPendingTab("faulty")}
+                  className={`px-4 py-2 rounded font-medium ${
+                    pendingTab === "faulty"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-200 text-gray-800"
+                  }`}
+                >
+                  Faulty Tickets
+                </button>
+              </div>
+
+              {/* Tickets */}
+              <div className="space-y-4">
+                {pendingTab === "service" &&
+                  [...Array(3)].map((_, i) => (
+                    <Link to="/view-sr" key={i}>
+                      <div className="border-l-4 border-green-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
+                        <h3 className="flex items-center gap-2 font-semibold text-green-800">
                           <FaTicketAlt className="h-5 w-5" />
                           Ticket #{10001 + i}
                         </h3>
-                        <p className={`text-sm ${textColor}`}>
-                          Subject: {ticketType === "Service Request" ? "System Crash - Awaiting response" : "Network Failure - Needs investigation"}
+                        <p className="text-xl text-black">
+                          Subject: System Crash - Awaiting response
                         </p>
-                        <p className={`text-sm ${textColor}`}>
-                          Ticket Created By: Shammi Herath
-                        </p>
-                        <p className={`text-sm ${textColor}`}>
-                          Ticket Type: {ticketType}
-                        </p>
-                        <p className={`text-sm ${textColor}`}>
-                          Description: {ticketType === "Service Request"
-                            ? "There is a crash on systems while opening the forti-client"
-                            : "Network down in second floor; faulty switch suspected"}
+                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
+                        <p className="text-sm text-black">Ticket Type: Service Request</p>
+                        <p className="text-sm text-black">
+                          Description: Crash on systems while opening the forti-client
                         </p>
                       </div>
                     </Link>
-                  );
-                })}
-              </div>
-            </div>
+                  ))}
 
-            {/* Ongoing Tickets */}
-            <div className="w-full md:w-1/2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Ongoing Tickets</h2>
-              <div className="space-y-4">
-                {[...Array(3)].map((_, i) => {
-                  const ticketType = i % 2 === 0 ? "Faulty Ticket" : "Service Request";
-                  const route = ticketType === "Service Request" ? "/create-sr" : "/create-ft";
-                  const borderColor = ticketType === "Service Request" ? "border-green-500" : "border-blue-500";
-                  const titleColor = ticketType === "Service Request" ? "text-green-800" : "text-blue-800";
-                  const textColor = ticketType === "Service Request" ? "text-green-700" : "text-blue-700";
-
-                  return (
-                    <Link to={route} key={i}>
-                      <div className={`border-l-4 ${borderColor} p-4 rounded shadow bg-white hover:bg-gray-50 mt-5`}>
-                        <h3 className={`flex items-center gap-2 text-lg font-semibold ${titleColor}`}>
+                {pendingTab === "faulty" &&
+                  [...Array(3)].map((_, i) => (
+                    <Link to="/view-ft" key={i}>
+                      <div className="border-l-4 border-blue-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
+                        <h3 className="flex items-center gap-2 font-semibold text-blue-800">
                           <FaTicketAlt className="h-5 w-5" />
                           Ticket #{20001 + i}
                         </h3>
-                        <p className={`text-sm ${textColor}`}>
-                          Subject: {ticketType === "Service Request"
-                            ? "Firewall Configuration - In progress"
-                            : "Router reboot issue - In progress"}
+                        <p className="text-xl text-black">
+                          Subject: Network Failure - Needs investigation
                         </p>
-                        <p className={`text-sm ${textColor}`}>
-                          Ticket Created By: Shammi Herath
+                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
+                        <p className="text-sm text-black">Ticket Type: Faulty Ticket</p>
+                        <p className="text-sm text-black">
+                          Description: Network down in second floor; faulty switch suspected
                         </p>
-                        <p className={`text-sm ${textColor}`}>
-                          Ticket Type: {ticketType}
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+            </div>
+
+
+            {/* Ongoing Tickets */}
+            {/* Ongoing Tickets with Tabs */}
+            <div className="w-full md:w-1/2">
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Ongoing Tickets</h2>
+
+              {/* Tabs */}
+              <div className="flex space-x-4 mb-4">
+                <button
+                  onClick={() => setOngoingTab("service")}
+                  className={`px-4 py-2 rounded font-medium ${
+                    ongoingTab === "service"
+                      ? "bg-green-600 text-white"
+                      : "bg-gray-200 text-gray-800"
+                  }`}
+                >
+                  Service Requests
+                </button>
+                <button
+                  onClick={() => setOngoingTab("faulty")}
+                  className={`px-4 py-2 rounded font-medium ${
+                    ongoingTab === "faulty"
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-200 text-gray-800"
+                  }`}
+                >
+                  Faulty Tickets
+                </button>
+              </div>
+
+              {/* Tickets */}
+              <div className="space-y-4">
+                {ongoingTab === "service" &&
+                  [...Array(3)].map((_, i) => (
+                    <Link to="/create-sr" key={i}>
+                      <div className="border-l-4 border-green-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
+                        <h3 className="flex items-center gap-2 text-lg font-semibold text-green-800">
+                          <FaTicketAlt className="h-5 w-5" />
+                          Ticket #{30001 + i}
+                        </h3>
+                        <p className="text-xl text-black">
+                          Subject: Firewall Configuration - In progress
                         </p>
-                        <p className={`text-sm ${textColor}`}>
-                          Description: {ticketType === "Service Request"
-                            ? "Add New Firewall Policy allowing YouTube access to the HR group"
-                            : "Router not responding after restart from dashboard"}
+                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
+                        <p className="text-sm text-black">Ticket Type: Service Request</p>
+                        <p className="text-sm text-black">
+                          Description: Add New Firewall Policy for HR group
                         </p>
                         <p className="text-sm text-red-600">Assigned Engineer: Pasan Malith</p>
                       </div>
                     </Link>
-                  );
-                })}
+                  ))}
+
+                {ongoingTab === "faulty" &&
+                  [...Array(3)].map((_, i) => (
+                    <Link to="/create-ft" key={i}>
+                      <div className="border-l-4 border-blue-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
+                        <h3 className="flex items-center gap-2 text-lg font-semibold text-blue-800">
+                          <FaTicketAlt className="h-5 w-5" />
+                          Ticket #{40001 + i}
+                        </h3>
+                        <p className="text-xl text-black">
+                          Subject: Router reboot issue - In progress
+                        </p>
+                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
+                        <p className="text-sm text-black">Ticket Type: Faulty Ticket</p>
+                        <p className="text-sm text-black">
+                          Description: Router not responding after restart from dashboard
+                        </p>
+                        <p className="text-sm text-red-600">Assigned Engineer: Pasan Malith</p>
+                      </div>
+                    </Link>
+                  ))}
               </div>
             </div>
+
           </div>
         </div>
       </div>

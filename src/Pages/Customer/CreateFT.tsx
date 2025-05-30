@@ -11,7 +11,7 @@ const CreateFaultyRequest = () => {
 
   const CreatedFT = () => {
         Swal.fire({
-          title: "Your Faulty Error is reported Sucessfully",
+          title: "Your Faulty Ticket has been recorded sucessfully",
           text: "Your request was sent to the engineers wait for their respond.",
           icon: "info",
           showCancelButton: false,
