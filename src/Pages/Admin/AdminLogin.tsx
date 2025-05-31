@@ -1,7 +1,7 @@
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import Logo from "../../assets/logo.png";
-import SecurityImage from "../../assets/security-image.webp";
-import BgImage from "../../assets/login-bg.jpg"; 
+import SecurityImage from "../../assets/img1.jpg";
+import BgImage from "../../assets/admin-login.jpg"; 
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";// Update to your background image path
 
@@ -29,11 +29,11 @@ const AdminLogin = () => {
               <img src={Logo} alt="LankaCom" className="h-14" />
             </div>
 
-            <p className="text-center text-xl text-red-500 font-semibold pt-4 pb-4 font-jura">
+            <p className="text-center text-xl text-blue-500 font-semibold pt-4 pb-4 font-jura">
               Cyber Security Operations Portal
             </p>
             <h2 className="text-center text-3xl font-jura font-bold text-gray-800 pb-4">
-              Customer Admin Dashboard
+               Admin Dashboard
             </h2>
             <p className="text-left text-sm text-gray-500 mb-6 font-jura">
               Please sign in to continue
@@ -48,7 +48,7 @@ const AdminLogin = () => {
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full pl-10 pr-4 py-2 bg-gray-100 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-400 font-jura"
+                  className="w-full pl-10 pr-4 py-2 bg-gray-100 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 font-jura"
                 />
               </div>
 
@@ -59,21 +59,21 @@ const AdminLogin = () => {
                 <input
                   type="password"
                   placeholder="Password"
-                  className="w-full pl-10 pr-4 py-2 bg-gray-100 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-red-400 font-jura"
+                  className="w-full pl-10 pr-4 py-2 bg-gray-100 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400 font-jura"
                 />
               </div>
 
               <button
                 type="button"
-                onClick={() => navigate("/home")}
-                className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700 transition font-jura"
+                onClick={() => navigate("/admin-dash")}
+                className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition font-jura"
                 >
                 Login
                 </button>
             </form>
 
             <div className="text-center mt-4">
-              <a href="/forgot-pass" className="text-red-500 text-sm hover:underline font-jura">
+              <a href="/forgot-pass" className="text-blue-500 text-sm hover:underline font-jura">
                 Forgot Password?
               </a>
             </div>

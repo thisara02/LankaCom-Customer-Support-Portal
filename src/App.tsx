@@ -20,6 +20,7 @@ import ViewTicket from "./Pages/Customer/ViewTicket"
 import AdminLogin from "./Pages/Admin/AdminLogin"
 import ForgotPassword from "./Pages/Customer/ForgotPassword"
 import ResetPass from "./Pages/Customer/ResetPassword"
+import AdminDash from "./Pages/Admin/AdminDashboard"
 
 
 const App: React.FC = () => {
@@ -45,11 +46,13 @@ const App: React.FC = () => {
       <Route path="/viewon" element={<ViewOngoing />} />
       <Route path="/profile" element={<CusProfile />} />
       <Route path="/view-history" element={<ViewTicket />} />
-
-      <Route path="/admin-login" element={<AdminLogin />} />
-
       <Route path="/forgot-pass" element={<ForgotPassword />} />
       <Route path="/reset-pass" element={<ResetPass />} />
+
+      <Route path="/admin-login" element={<AdminLogin />} />
+      <Route path="/admin-dash" element={<AdminDash />} />
+
+      
       
     </Routes>
     </AnimatePresence>

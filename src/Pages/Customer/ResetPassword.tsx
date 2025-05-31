@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLock, FaArrowLeft } from "react-icons/fa";
 import Swal from "sweetalert2";
+import Image from "../../assets/back.jpg"; // Assuming your background image path
 
 const ResetPass = () => {
   const navigate = useNavigate();
@@ -52,17 +53,17 @@ const ResetPass = () => {
     // If all criteria pass
     setError(null);
     Swal.fire({
-          title: "Password Reset Sucessfull!",
-          text: "Now you can login by entering your new password",
-          icon: "info",
-          timer: 1500,
-          showConfirmButton: false,
-          customClass: {
-            popup: "swal2-text-black",
-            confirmButton: "swal2-confirm-button",
-            cancelButton: "swal2-cancel-button",
-          },
-     });
+      title: "Password Reset Successful!",
+      text: "Now you can login by entering your new password",
+      icon: "info",
+      timer: 1500,
+      showConfirmButton: false,
+      customClass: {
+        popup: "swal2-text-black",
+        confirmButton: "swal2-confirm-button",
+        cancelButton: "swal2-cancel-button",
+      },
+    });
 
     // Clear the fields
     setNewPassword("");
@@ -73,8 +74,18 @@ const ResetPass = () => {
   };
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-gradient-to-tr from-purple-600 to-blue-400">
-      <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-md font-jura">
+    <div className="relative min-h-screen w-screen flex items-center justify-center font-jura">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${Image})` }}
+      ></div>
+
+      {/* Overlay with opacity */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      {/* Main content */}
+      <div className="relative z-10 bg-white shadow-xl rounded-xl p-12 w-3/5 ">
         {/* Back to Login */}
         <button
           onClick={() => navigate("/login")}
@@ -87,9 +98,7 @@ const ResetPass = () => {
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
           Reset Password
         </h1>
-        <p className="text-gray-600 mb-6">
-          Enter your new password below.
-        </p>
+        <p className="text-gray-600 mb-6">Enter your new password below.</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">

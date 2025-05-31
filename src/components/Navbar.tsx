@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   }, []);
 
   return (
-    <header className="w-full bg-white shadow-md flex items-center px-4 h-20 relative z-50">
+    <header className="w-full bg-gray-100 shadow-md flex items-center px-4 h-20 relative z-50">
       {/* Left: Hamburger + Logo */}
       <div className="flex items-center space-x-3 md:space-x-4">
         <button

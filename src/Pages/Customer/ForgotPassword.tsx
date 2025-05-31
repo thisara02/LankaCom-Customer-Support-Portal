@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaEnvelope, FaKey } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Image from "../../assets/back.jpg"; 
 
 const ForgotPass = () => {
   const [email, setEmail] = useState("");
@@ -51,29 +52,36 @@ const ForgotPass = () => {
       setTimeout(() => navigate("/reset-pass"), 2000);
 
       Swal.fire({
-      title: "OTP Verification Sucessfull!",
-      text: "OTP Verified Sucessfully",
-      icon: "info",
-      timer: 1500,
-      showConfirmButton: false,
-      customClass: {
-        popup: "swal2-text-black",
-        confirmButton: "swal2-confirm-button",
-        cancelButton: "swal2-cancel-button",
-      },
-    });
-      // Here you might want to render the reset password form or redirect
+        title: "OTP Verification Successful!",
+        text: "OTP Verified Successfully",
+        icon: "info",
+        timer: 1500,
+        showConfirmButton: false,
+        customClass: {
+          popup: "swal2-text-black",
+          confirmButton: "swal2-confirm-button",
+          cancelButton: "swal2-cancel-button",
+        },
+      });
     } else {
       setError("Invalid OTP. Please try again.");
       setSuccess(null);
     }
-
-    
   };
 
   return (
-    <div className="min-h-screen w-screen flex items-center justify-center bg-gradient-to-tr from-red-600 to-gray-400 font-jura">
-      <div className="bg-white shadow-xl rounded-xl p-8 w-full max-w-md">
+    <div className="relative min-h-screen w-screen flex items-center justify-center font-jura">
+      {/* Background image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${Image})` }}
+      ></div>
+
+      {/* Overlay with opacity */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      {/* Main content */}
+      <div className="relative z-10 bg-white shadow-xl rounded-xl p-8 w-3/5">
         <h1 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
           Forgot Password
         </h1>
@@ -91,7 +99,9 @@ const ForgotPass = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email Address"
               readOnly={showOtpSection} // Make readonly after OTP is sent
-              className={`w-full pl-10 pr-4 py-2 rounded-lg border ${showOtpSection ? "bg-gray-100" : "bg-white"} border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition text-black`}
+              className={`w-full pl-10 pr-4 py-2 rounded-lg border ${
+                showOtpSection ? "bg-gray-100" : "bg-white"
+              } border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 transition text-black`}
             />
           </div>
 

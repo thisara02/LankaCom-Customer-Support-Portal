@@ -10,28 +10,28 @@ const CreateFaultyRequest = () => {
   const navigate = useNavigate();
 
   const CreatedFT = () => {
-        Swal.fire({
-          title: "Your Faulty Ticket has been recorded sucessfully",
-          text: "Your request was sent to the engineers wait for their respond.",
-          icon: "info",
-          showCancelButton: false,
-          confirmButtonColor: "#f5365c",
-          cancelButtonColor: "#3085d6",
-          confirmButtonText: "Continue",
-          cancelButtonText: "Cancel",
-          customClass: {
-          popup: "swal2-text-black",
-          confirmButton: "swal2-confirm-button",
-          cancelButton: "swal2-cancel-button"}
-  
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Perform logout logic (e.g., clear auth tokens, call API, etc.)
-            // Then navigate to the login page
-            navigate("/home");
-          }
-        });
-      };
+  Swal.fire({
+    title: "Your Faulty Ticket has been recorded successfully",
+    text: "Your request was sent to the engineers. Please wait for their response.",
+    icon: "info",
+    showCancelButton: false,
+    timer: 1500,
+    showConfirmButton: false,
+    confirmButtonColor: "#f5365c",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Continue",
+    cancelButtonText: "Cancel",
+    customClass: {
+      popup: "swal2-text-black",
+      confirmButton: "swal2-confirm-button",
+      cancelButton: "swal2-cancel-button"
+    }
+  });
+
+  // Move setTimeout outside of Swal.fire()
+  setTimeout(() => navigate("/home"), 1500);
+};
+
       
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
