@@ -90,7 +90,7 @@ const Pending = () => {
         <main className="p-6 flex-1 overflow-auto font-jura">
           <div className="mb-8 bg-white p-6 rounded-lg shadow-md mx-10 mt-5">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 border-b-4 inline-block pb-2 font-jura mb-10">
-              Ongoing Tickets
+              Ongoing Issues
             </h1>
 
             {/* Tabs */}

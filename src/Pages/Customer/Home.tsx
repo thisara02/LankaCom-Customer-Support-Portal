@@ -185,10 +185,10 @@ const Home = () => {
           {/* Dashboard Cards */}
           <div className="p-4 grid grid-cols-1 md:grid-cols-4 gap-8 px-20 pt-10 font-jura">
             {[
-              { label: "Pending Ticket Count", count: 3 },
-              { label: "Ongoing Ticket Count", count: 2 },
-              { label: "Balance Ticket Count (This Month)", count: 5 },
-              { label: "Used Ticket Count (This Month)", count: 14 }
+              { label: "Pending Issue Count", count: 3 },
+              { label: "Ongoing Issue Count", count: 2 },
+              { label: "Balance Service Request Count (This Month)", count: 5 },
+              { label: "Used Service Request Count (This Month)", count: 14 }
             ].map((item, index) => (
               <div key={index} className="bg-white rounded-xl shadow-md p-10">
                 <h2 className="text-xl font-semibold text-gray-800 mb-2 text-center">
@@ -203,7 +203,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row gap-6 px-20 mt-8 pb-10 font-jura">
             {/* Pending Tickets */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Pending Tickets</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Pending Issues</h2>
 
               {/* Tabs */}
               <div className="flex space-x-4 mb-4">
@@ -252,7 +252,7 @@ const Home = () => {
 
             {/* Ongoing Tickets */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Ongoing Tickets</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-4">Ongoing Issues</h2>
 
               {/* Tabs */}
               <div className="flex space-x-4 mb-4">
