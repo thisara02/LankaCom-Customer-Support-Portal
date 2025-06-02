@@ -1,6 +1,6 @@
 import React from "react";
-import { FaTachometerAlt, FaUser, FaUserPlus} from "react-icons/fa";
-import Profile from "../assets/test-profile.jpg";
+import { FaHistory, FaTachometerAlt, FaUser, FaUserPlus} from "react-icons/fa";
+import Profile from "../assets/eng-logo.jpg";
 import { useNavigate } from "react-router-dom";
 import { FaUserGroup } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
@@ -117,6 +117,17 @@ const AdminSide: React.FC<SidebarProps> = ({ isOpen }) => {
           >
             <FaUser />
             <span>Create Engineer</span>
+          </NavLink>
+          <NavLink
+            to="/admin-history"
+            className={({ isActive }) =>
+              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              hover:text-blue-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-blue-600' : 'after:w-0 group-hover:after:w-full'}`
+            }
+          >
+            <FaHistory />
+            <span>Ticket History</span>
           </NavLink>
         </nav>
 

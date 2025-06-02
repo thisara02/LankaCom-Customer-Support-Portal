@@ -32,7 +32,7 @@ const AdminNav: React.FC<NavbarProps> = ({ toggleSidebar }) => {
       {/* Right: Notifications */}
       <div className="flex items-center pr-6 relative" ref={dropdownRef}>
         <NavLink
-          to="/notifications"
+          to="/admin-notifi"
           className={({ isActive }) =>
             `relative text-black hover:text-blue-600 group text-xl p-2 transition
             ${isActive ? "after:w-full" : ""}`
