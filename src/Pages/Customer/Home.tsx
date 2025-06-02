@@ -10,9 +10,148 @@ const Home = () => {
   const [pendingTab, setPendingTab] = useState<"service" | "faulty">("service");
   const [ongoingTab, setOngoingTab] = useState<"service" | "faulty">("service");
 
-
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
+  };
+
+  const pendingTickets = {
+    service: [
+      {
+        id: 10001,
+        subject: "System Crash - Awaiting response",
+        createdBy: "Shammi Herath",
+        type: "Service Request",
+        description: "Crash on systems while opening the forti-client",
+        link: "/view-sr",
+        borderColor: "border-green-500",
+        textColor: "text-green-800"
+      },
+      {
+        id: 10002,
+        subject: "Email Issue - Awaiting response",
+        createdBy: "Tharusha Kanishka",
+        type: "Service Request",
+        description: "Unable to send or receive emails",
+        link: "/view-sr",
+        borderColor: "border-green-500",
+        textColor: "text-green-800"
+      },
+      {
+        id: 10003,
+        subject: "Printer Setup - Awaiting response",
+        createdBy: "Shammi Herath",
+        type: "Service Request",
+        description: "New printer setup required in HR department",
+        link: "/view-sr",
+        borderColor: "border-green-500",
+        textColor: "text-green-800"
+      }
+    ],
+    faulty: [
+      {
+        id: 20001,
+        subject: "Network Failure - Needs investigation",
+        createdBy: "Shammi Herath",
+        type: "Faulty Ticket",
+        description: "Network down in second floor; faulty switch suspected",
+        link: "/view-ft",
+        borderColor: "border-blue-500",
+        textColor: "text-blue-800"
+      },
+      {
+        id: 20002,
+        subject: "Printer Not Working - Needs fixing",
+        createdBy: "Shammi Herath",
+        type: "Faulty Ticket",
+        description: "Printer jams frequently in finance department",
+        link: "/view-ft",
+        borderColor: "border-blue-500",
+        textColor: "text-blue-800"
+      },
+      {
+        id: 20003,
+        subject: "Monitor Flickering - Needs checking",
+        createdBy: "Shammi Herath",
+        type: "Faulty Ticket",
+        description: "Monitor display flickering at random times",
+        link: "/view-ft",
+        borderColor: "border-blue-500",
+        textColor: "text-blue-800"
+      }
+    ]
+  };
+
+  const ongoingTickets = {
+    service: [
+      {
+        id: 30001,
+        subject: "Firewall Configuration - In progress",
+        createdBy: "Shammi Herath",
+        type: "Service Request",
+        description: "Add New Firewall Policy for HR group",
+        assignedEngineer: "Pasan Malith",
+        link: "/create-sr",
+        borderColor: "border-green-500",
+        textColor: "text-green-800"
+      },
+      {
+        id: 30002,
+        subject: "VPN Setup - In progress",
+        createdBy: "Shammi Herath",
+        type: "Service Request",
+        description: "Setup VPN access for remote staff",
+        assignedEngineer: "Pasan Malith",
+        link: "/create-sr",
+        borderColor: "border-green-500",
+        textColor: "text-green-800"
+      },
+      {
+        id: 30003,
+        subject: "Database Backup - In progress",
+        createdBy: "Shammi Herath",
+        type: "Service Request",
+        description: "Implement automated database backups",
+        assignedEngineer: "Pasan Malith",
+        link: "/create-sr",
+        borderColor: "border-green-500",
+        textColor: "text-green-800"
+      }
+    ],
+    faulty: [
+      {
+        id: 40001,
+        subject: "Router reboot issue - In progress",
+        createdBy: "Shammi Herath",
+        type: "Faulty Ticket",
+        description: "Router not responding after restart from dashboard",
+        assignedEngineer: "Pasan Malith",
+        link: "/create-ft",
+        borderColor: "border-blue-500",
+        textColor: "text-blue-800"
+      },
+      {
+        id: 40002,
+        subject: "Switch overheating - In progress",
+        createdBy: "Shammi Herath",
+        type: "Faulty Ticket",
+        description: "Switch in server room overheating frequently",
+        assignedEngineer: "Pasan Malith",
+        link: "/create-ft",
+        borderColor: "border-blue-500",
+        textColor: "text-blue-800"
+      },
+      {
+        id: 40003,
+        subject: "PC Power Issue - In progress",
+        createdBy: "Shammi Herath",
+        type: "Faulty Ticket",
+        description: "PC power supply unit unstable, needs replacement",
+        assignedEngineer: "Pasan Malith",
+        link: "/create-ft",
+        borderColor: "border-blue-500",
+        textColor: "text-blue-800"
+      }
+    ]
   };
 
   return (
@@ -63,7 +202,6 @@ const Home = () => {
           {/* Ticket Sections */}
           <div className="flex flex-col md:flex-row gap-6 px-20 mt-8 pb-10 font-jura">
             {/* Pending Tickets */}
-            {/* Pending Tickets with Tabs */}
             <div className="w-full md:w-1/2">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Pending Tickets</h2>
 
@@ -93,51 +231,26 @@ const Home = () => {
 
               {/* Tickets */}
               <div className="space-y-4">
-                {pendingTab === "service" &&
-                  [...Array(3)].map((_, i) => (
-                    <Link to="/view-sr" key={i}>
-                      <div className="border-l-4 border-green-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
-                        <h3 className="flex items-center gap-2 font-semibold text-green-800">
-                          <FaTicketAlt className="h-5 w-5" />
-                          Ticket #{10001 + i}
-                        </h3>
-                        <p className="text-xl text-black">
-                          Subject: System Crash - Awaiting response
-                        </p>
-                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
-                        <p className="text-sm text-black">Ticket Type: Service Request</p>
-                        <p className="text-sm text-black">
-                          Description: Crash on systems while opening the forti-client
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-
-                {pendingTab === "faulty" &&
-                  [...Array(3)].map((_, i) => (
-                    <Link to="/view-ft" key={i}>
-                      <div className="border-l-4 border-blue-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
-                        <h3 className="flex items-center gap-2 font-semibold text-blue-800">
-                          <FaTicketAlt className="h-5 w-5" />
-                          Ticket #{20001 + i}
-                        </h3>
-                        <p className="text-xl text-black">
-                          Subject: Network Failure - Needs investigation
-                        </p>
-                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
-                        <p className="text-sm text-black">Ticket Type: Faulty Ticket</p>
-                        <p className="text-sm text-black">
-                          Description: Network down in second floor; faulty switch suspected
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
+                {pendingTickets[pendingTab].map((ticket) => (
+                  <Link to={ticket.link} key={ticket.id}>
+                    <div
+                      className={`border-l-4 ${ticket.borderColor} p-4 rounded shadow bg-white hover:bg-gray-50 mt-5`}
+                    >
+                      <h3 className={`flex items-center gap-2 font-semibold ${ticket.textColor}`}>
+                        <FaTicketAlt className="h-5 w-5" />
+                        Ticket #{ticket.id}
+                      </h3>
+                      <p className="text-xl text-black">Subject: {ticket.subject}</p>
+                      <p className="text-sm text-black">Ticket Created By: {ticket.createdBy}</p>
+                      <p className="text-sm text-black">Ticket Type: {ticket.type}</p>
+                      <p className="text-sm text-black">Description: {ticket.description}</p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
 
-
             {/* Ongoing Tickets */}
-            {/* Ongoing Tickets with Tabs */}
             <div className="w-full md:w-1/2">
               <h2 className="text-2xl font-bold text-gray-800 mb-4">Ongoing Tickets</h2>
 
@@ -167,50 +280,29 @@ const Home = () => {
 
               {/* Tickets */}
               <div className="space-y-4">
-                {ongoingTab === "service" &&
-                  [...Array(3)].map((_, i) => (
-                    <Link to="/create-sr" key={i}>
-                      <div className="border-l-4 border-green-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
-                        <h3 className="flex items-center gap-2 text-lg font-semibold text-green-800">
-                          <FaTicketAlt className="h-5 w-5" />
-                          Ticket #{30001 + i}
-                        </h3>
-                        <p className="text-xl text-black">
-                          Subject: Firewall Configuration - In progress
-                        </p>
-                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
-                        <p className="text-sm text-black">Ticket Type: Service Request</p>
-                        <p className="text-sm text-black">
-                          Description: Add New Firewall Policy for HR group
-                        </p>
-                        <p className="text-sm text-red-600">Assigned Engineer: Pasan Malith</p>
-                      </div>
-                    </Link>
-                  ))}
-
-                {ongoingTab === "faulty" &&
-                  [...Array(3)].map((_, i) => (
-                    <Link to="/create-ft" key={i}>
-                      <div className="border-l-4 border-blue-500 p-4 rounded shadow bg-white hover:bg-gray-50 mt-5">
-                        <h3 className="flex items-center gap-2 text-lg font-semibold text-blue-800">
-                          <FaTicketAlt className="h-5 w-5" />
-                          Ticket #{40001 + i}
-                        </h3>
-                        <p className="text-xl text-black">
-                          Subject: Router reboot issue - In progress
-                        </p>
-                        <p className="text-sm text-black">Ticket Created By: Shammi Herath</p>
-                        <p className="text-sm text-black">Ticket Type: Faulty Ticket</p>
-                        <p className="text-sm text-black">
-                          Description: Router not responding after restart from dashboard
-                        </p>
-                        <p className="text-sm text-red-600">Assigned Engineer: Pasan Malith</p>
-                      </div>
-                    </Link>
-                  ))}
+                {ongoingTickets[ongoingTab].map((ticket) => (
+                  <Link to={ticket.link} key={ticket.id}>
+                    <div
+                      className={`border-l-4 ${ticket.borderColor} p-4 rounded shadow bg-white hover:bg-gray-50 mt-5`}
+                    >
+                      <h3
+                        className={`flex items-center gap-2 text-lg font-semibold ${ticket.textColor}`}
+                      >
+                        <FaTicketAlt className="h-5 w-5" />
+                        Ticket #{ticket.id}
+                      </h3>
+                      <p className="text-xl text-black">Subject: {ticket.subject}</p>
+                      <p className="text-sm text-black">Ticket Created By: {ticket.createdBy}</p>
+                      <p className="text-sm text-black">Ticket Type: {ticket.type}</p>
+                      <p className="text-sm text-black">Description: {ticket.description}</p>
+                      <p className="text-sm text-red-600">
+                        Assigned Engineer: {ticket.assignedEngineer}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>

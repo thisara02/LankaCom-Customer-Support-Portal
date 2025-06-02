@@ -21,6 +21,13 @@ import AdminLogin from "./Pages/Admin/AdminLogin"
 import ForgotPassword from "./Pages/Customer/ForgotPassword"
 import ResetPass from "./Pages/Customer/ResetPassword"
 import AdminDash from "./Pages/Admin/AdminDashboard"
+import EngLogin from "./Pages/Engineer/EngLogin"
+import AdminCreateCus from "./Pages/Admin/AdminCreateCus"
+import AdminCreateEng from "./Pages/Admin/AdminCreateEng"
+import AdminNotification from "./Pages/Admin/AdminNotifications"
+import AdminProfile from "./Pages/Admin/AdminProfile"
+import AdminViewCus from "./Pages/Admin/AdminViewCus"
+
 
 
 const App: React.FC = () => {
@@ -51,8 +58,13 @@ const App: React.FC = () => {
 
       <Route path="/admin-login" element={<AdminLogin />} />
       <Route path="/admin-dash" element={<AdminDash />} />
+      <Route path="/create-cus" element={<AdminCreateCus />} />
+      <Route path="/create-eng" element={<AdminCreateEng />} />
+      <Route path="/admin-notifi" element={<AdminNotification />} />
+      <Route path="/admin-profile" element={<AdminProfile />} />
+      <Route path="/admin-viewcus" element={<AdminViewCus />} />
 
-      
+      <Route path="/eng-login" element={<EngLogin />} />
       
     </Routes>
     </AnimatePresence>

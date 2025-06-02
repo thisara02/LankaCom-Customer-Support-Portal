@@ -1,8 +1,8 @@
 import React from "react";
-import { FaTachometerAlt, FaHistory} from "react-icons/fa";
+import { FaTachometerAlt, FaUser, FaUserPlus} from "react-icons/fa";
 import Profile from "../assets/test-profile.jpg";
 import { useNavigate } from "react-router-dom";
-import { FaTicket } from "react-icons/fa6";
+import { FaUserGroup } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -58,7 +58,7 @@ const AdminSide: React.FC<SidebarProps> = ({ isOpen }) => {
             src={Profile}
             alt="User"
             className="w-16 h-16 rounded-full object-cover border border-gray-300 mx-auto cursor-pointer mb-2"
-            onClick={() => navigate("/profile")}
+            onClick={() => navigate("/admin-profile")}
         />
         
             <p className="font-semibold text-gray-800 text-base font-jura text-center">{user.name}</p>
@@ -72,11 +72,11 @@ const AdminSide: React.FC<SidebarProps> = ({ isOpen }) => {
         {/* Navigation Links */}
         <nav className="space-y-7 pt-5 pl-5">
           <NavLink
-            to="/home"
+            to="/admin-dash"
             className={({ isActive }) =>
               `relative flex items-center space-x-3 text-gray-800 transition font-jura
-              hover:text-red-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-red-500 after:transition-all after:duration-300
-              ${isActive ? 'after:w-full text-red-600' : 'after:w-0 group-hover:after:w-full'}`
+              hover:text-blue-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-blue-600' : 'after:w-0 group-hover:after:w-full'}`
             }
           >
             <FaTachometerAlt />
@@ -84,27 +84,39 @@ const AdminSide: React.FC<SidebarProps> = ({ isOpen }) => {
           </NavLink>
 
           <NavLink
-            to="/pending"
+            to="/create-cus"
             className={({ isActive }) =>
               `relative flex items-center space-x-3 text-gray-800 transition font-jura
-              hover:text-red-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-red-500 after:transition-all after:duration-300
-              ${isActive ? 'after:w-full text-red-600' : 'after:w-0 group-hover:after:w-full'}`
+              hover:text-blue-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-blue-600' : 'after:w-0 group-hover:after:w-full'}`
             }
           >
-            <FaTicket />
-            <span>Ongoing Requests Update</span>
+            <FaUserPlus />
+            <span>Create Customer</span>
           </NavLink>
 
           <NavLink
-            to="/history"
+            to="/admin-viewcus"
             className={({ isActive }) =>
               `relative flex items-center space-x-3 text-gray-800 transition font-jura
-              hover:text-red-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-red-500 after:transition-all after:duration-300
-              ${isActive ? 'after:w-full text-red-600' : 'after:w-0 group-hover:after:w-full'}`
+              hover:text-blue-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-blue-600' : 'after:w-0 group-hover:after:w-full'}`
             }
           >
-            <FaHistory />
-            <span>Request History</span>
+            <FaUserGroup />
+            <span>View Customer-list</span>
+          </NavLink>
+
+          <NavLink
+            to="/create-eng"
+            className={({ isActive }) =>
+              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              hover:text-blue-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-blue-600' : 'after:w-0 group-hover:after:w-full'}`
+            }
+          >
+            <FaUser />
+            <span>Create Engineer</span>
           </NavLink>
         </nav>
 
