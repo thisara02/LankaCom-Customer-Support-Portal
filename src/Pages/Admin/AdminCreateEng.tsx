@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Sidebar from "../../components/AdminSide";
 import Navbar from "../../components/AdminNav";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
@@ -107,10 +107,10 @@ const AdminCreateEng = () => {
 const handleDeleteEngineer = (id: number) => {
   Swal.fire({
     title: "Are you sure?",
-    text: "This engineer will be permanently deleted!",
+    text: "This engineer will be permanently deleted! This action cannot be undone.",
     icon: "warning",
     showCancelButton: true,
-    confirmButtonText: "Yes, delete!",
+    confirmButtonText: "Yes, Delete!",
     cancelButtonText: "Cancel",
     didOpen: () => {
       const confirmButton = Swal.getConfirmButton();

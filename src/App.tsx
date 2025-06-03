@@ -28,7 +28,13 @@ import AdminNotification from "./Pages/Admin/AdminNotifications"
 import AdminProfile from "./Pages/Admin/AdminProfile"
 import AdminViewCus from "./Pages/Admin/AdminViewCus"
 import AdminHistory from "./Pages/Admin/AdminHistory"
-import AdminViewTicket from "./Pages/Admin/AdminViewTicket"
+import AdminForgotPass from "./Pages/Admin/AdminForgotPassword"
+import AdminResetPass from "./Pages/Admin/AdminResetPassword"
+import AdminViewPending from "./Pages/Admin/AdminViewPending"
+import AdminViewClosed from "./Pages/Admin/AdminViewClosed"
+import AdminViewOngoing from "./Pages/Admin/AdminViewOngoing"
+
+
 
 
 
@@ -66,7 +72,12 @@ const App: React.FC = () => {
       <Route path="/admin-profile" element={<AdminProfile />} />
       <Route path="/admin-viewcus" element={<AdminViewCus />} />
       <Route path="/admin-history" element={<AdminHistory />} />
-      <Route path="/admin-view" element={<AdminViewTicket />} />
+      <Route path="/admin-forgot" element={<AdminForgotPass />} />
+      <Route path="/admin-reset" element={<AdminResetPass />} />
+      <Route path="/admin-view-closed" element={<AdminViewClosed />} />
+      <Route path="/admin-view-pending" element={<AdminViewPending />} />
+      <Route path="/admin-viewon" element={<AdminViewOngoing />} />
+      
 
       <Route path="/eng-login" element={<EngLogin />} />
       

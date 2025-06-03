@@ -73,7 +73,7 @@ const AdminLogin = () => {
             </form>
 
             <div className="text-center mt-4">
-              <a href="/forgot-pass" className="text-blue-500 text-sm hover:underline font-jura">
+              <a href="/admin-forgot" className="text-blue-500 text-sm hover:underline font-jura">
                 Forgot Password?
               </a>
             </div>

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Sidebar from "../../components/Sidebar";
-import Navbar from "../../components/Navbar";
+import Sidebar from "../../components/AdminSide";
+import Navbar from "../../components/AdminNav";
 
-const AdminViewTicket = () => {
+const AdminViewPending = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [commentText, setCommentText] = useState("");
 
@@ -19,11 +19,8 @@ const AdminViewTicket = () => {
     requesterEmail: "thisaram@lankacom.net",
     requesterContact: "0785509917",
     createdAt: "2025-05-26T09:45:00Z",
-    status: "Ongoing",
+    status: "Pending",
     documents: ["vpn_error_screenshot.png"],
-    engineerName: "Engineer D",
-    engineerContact: "+1 987 654 3210",
-    closedAt: null,
   };
 
   const comments = [
@@ -117,15 +114,7 @@ const AdminViewTicket = () => {
                   ))}
                 </p>
               )}
-              {(ticket.status === "Ongoing" || ticket.status === "Closed") && (
-                <>
-                  <p className="text-gray-600 mt-2 text-m font-medium"><strong>Assigned Engineer:</strong> {ticket.engineerName}</p>
-                  <p className="text-gray-600 mt-2 text-m font-medium"><strong>Engineer Contact:</strong> {ticket.engineerContact}</p>
-                </>
-              )}
-              {ticket.status === "Closed" && ticket.closedAt && (
-                <p><strong>Closed At:</strong> {new Date(ticket.closedAt).toLocaleString()}</p>
-              )}
+            
             </div>
 
             {/* Right Section (1/3): Comments */}
@@ -151,7 +140,7 @@ const AdminViewTicket = () => {
                   onChange={(e) => setCommentText(e.target.value)}
                   className="w-full p-2 border border-gray-300 rounded-md mb-2 bg-white text-black"
                 ></textarea>
-                <button
+                {/* <button
                   className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-400 transition"
                   onClick={() => {
                     if (commentText.trim()) {
@@ -161,7 +150,7 @@ const AdminViewTicket = () => {
                   }}
                 >
                   Post Comment
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -171,4 +160,4 @@ const AdminViewTicket = () => {
   );
 };
 
-export default AdminViewTicket;
+export default AdminViewPending;

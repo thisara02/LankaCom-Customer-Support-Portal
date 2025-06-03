@@ -132,6 +132,7 @@ const AdminHistory = () => {
           <div className="mb-8 bg-white p-6 rounded-lg shadow-md mx-10 mt-5">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 border-b-4 inline-block pb-2 font-jura mb-6">
               Ticket History
+              
             </h1>
 
             {/* Search Filters Only */}
@@ -160,7 +161,15 @@ const AdminHistory = () => {
                 {filteredTickets.map((ticket) => (
                   <div
                     key={`${ticket.id}-${ticket.status}`}
-                    onClick={() => navigate("/view-history")}
+                    onClick={() => {
+                      if (ticket.status === "Pending") {
+                        navigate("/admin-view-pending");
+                      } else if (ticket.status === "Ongoing") {
+                        navigate("/admin-viewon");
+                      } else if (ticket.status === "Closed") {
+                        navigate("/admin-view-closed");
+                      }
+                    }}
                     className={`bg-white p-6 rounded-lg shadow border-l-8 ${getBorderColor(
                       ticket.status
                     )} flex justify-between items-start cursor-pointer hover:shadow-lg transition-shadow duration-200`}

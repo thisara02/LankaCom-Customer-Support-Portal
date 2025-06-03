@@ -156,7 +156,7 @@ const AdminCreateCus = () => {
 const handleDeleteCustomer = (id: string) => {
   Swal.fire({
     title: "Are you sure?",
-    text: "This action cannot be undone.",
+    text: "This user will be permenantly deleted.This action cannot be undone.",
     icon: "warning",
     showCancelButton: true,
     confirmButtonText: "Yes, delete it!",

@@ -46,7 +46,7 @@ const AdminSide: React.FC<SidebarProps> = ({ isOpen }) => {
     };
   return (
     <aside
-      className={`bg-white h-screen border-r shadow-md transition-all duration-300 ${
+      className={`bg-[#c6d1e7] h-screen border-r shadow-md transition-all duration-300 ${
         isOpen ? "w-60" : "w-0 md:w-70"
       } overflow-hidden`}
     >
