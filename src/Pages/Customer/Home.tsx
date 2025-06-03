@@ -169,7 +169,7 @@ const Home = () => {
         </div>
 
         {/* Scrollable Content */}
-        <div className="flex-1 overflow-y-auto bg-gray-100">
+        <div className="flex-1 overflow-y-auto bg-[#F3F4F6]">
           {/* Banner */}
           <div
             className="w-full h-80 bg-cover bg-center relative"
@@ -203,7 +203,7 @@ const Home = () => {
           <div className="flex flex-col md:flex-row gap-6 px-20 mt-8 pb-10 font-jura">
             {/* Pending Tickets */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Pending Issues</h2>
+              <h2 className="text-2xl font-bold text-[#000000] mb-4">Pending Issues</h2>
 
               {/* Tabs */}
               <div className="flex space-x-4 mb-4">
@@ -252,7 +252,7 @@ const Home = () => {
 
             {/* Ongoing Tickets */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-2xl font-bold text-gray-800 mb-4">Ongoing Issues</h2>
+              <h2 className="text-2xl font-bold text-[#000000] mb-4">Ongoing Issues</h2>
 
               {/* Tabs */}
               <div className="flex space-x-4 mb-4">

@@ -28,7 +28,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   }, []);
 
   return (
-    <header className="w-full bg-gray-100 shadow-md flex items-center px-4 h-20 relative z-50">
+    <header className="w-full bg-[#F3F4F6] shadow-md flex items-center px-4 h-20 relative z-50">
       {/* Left: Hamburger + Logo */}
       <div className="flex items-center space-x-3 md:space-x-4">
         <button
@@ -52,7 +52,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
             key={to}
             to={to}
             className={({ isActive }) =>
-              `relative font-medium text-black transition duration-300 pb-1
+              `relative font-medium text-[#000000] transition duration-300 pb-1
               ${isActive ? "after:w-full after:scale-100" : "after:w-0 after:scale-0"}
               after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:bg-red-500 after:transition-transform after:duration-300 after:origin-left
               hover:after:w-full hover:after:scale-100 font-jura`
@@ -81,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
         <NavLink
           to="/notifications"
           className={({ isActive }) =>
-            `relative text-black hover:text-red-600 group text-xl p-2 transition
+            `relative text-[#000000] hover:text-red-600 group text-xl p-2 transition
             ${isActive ? "after:w-full" : ""}`
           }
         >
