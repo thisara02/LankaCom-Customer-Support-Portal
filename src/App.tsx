@@ -10,13 +10,13 @@ import Notifications from "./Pages/Customer/Notifications";
 import Landing from "./Pages/Customer/Landing";
 import Pending from "./Pages/Customer/PendingRequests";
 import History from "./Pages/Customer/RequestHistory";
-import ViewFT from "./Pages/Customer/ViewFT"
+import ViewClosed from "./Pages/Customer/ViewClosed"
 import CreateSR from "./Pages/Customer/CreateSR"
 import CreateFT from "./Pages/Customer/CreateFT"
-import ViewSR from "./Pages/Customer/ViewSR"
+import ViewSR from "./Pages/Customer/ViewClosed"
 import ViewOngoing from "./Pages/Customer/ViewOngoing"
 import CusProfile from "./Pages/Customer/Profile"
-import ViewTicket from "./Pages/Customer/ViewTicket"
+import ViewPending from "./Pages/Customer/ViewPending"
 import AdminLogin from "./Pages/Admin/AdminLogin"
 import ForgotPassword from "./Pages/Customer/ForgotPassword"
 import ResetPass from "./Pages/Customer/ResetPassword"
@@ -48,13 +48,13 @@ const App: React.FC = () => {
       <Route path="/land" element={<Landing />} />
       <Route path="/pending" element={<Pending />} />
       <Route path="/history" element={<History />} />
-      <Route path="/view-ft" element={<ViewFT />} />
+      <Route path="/view-closed" element={<ViewClosed />} />
       <Route path="/view-sr" element={<ViewSR />} />
       <Route path="/create-sr" element={<CreateSR />} />
       <Route path="/create-ft" element={<CreateFT />} />
       <Route path="/viewon" element={<ViewOngoing />} />
       <Route path="/profile" element={<CusProfile />} />
-      <Route path="/view-history" element={<ViewTicket />} />
+      <Route path="/view-pending" element={<ViewPending />} />
       <Route path="/forgot-pass" element={<ForgotPassword />} />
       <Route path="/reset-pass" element={<ResetPass />} />
 

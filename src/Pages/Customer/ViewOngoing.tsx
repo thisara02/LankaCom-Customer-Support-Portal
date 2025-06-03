@@ -23,7 +23,6 @@ const ViewOngoing = () => {
         documents: ["vpn_error_screenshot.png"],
         engineerName: "Madura Jayasundara",
         engineerContact: "0740563227",
-        closedAt: null,
     };
 
     const comments = [
@@ -117,15 +116,8 @@ const ViewOngoing = () => {
                     ))}
                     </p>
                 )}
-                {(ticket.status === "Ongoing" || ticket.status === "Closed") && (
-                    <>
-                    <p className="text-gray-600 mt-2 text-m font-medium"><strong>Assigned Engineer:</strong> {ticket.engineerName}</p>
-                    <p className="text-gray-600 mt-2 text-m font-medium"><strong>Engineer Contact:</strong> {ticket.engineerContact}</p>
-                    </>
-                )}
-                {ticket.status === "Closed" && ticket.closedAt && (
-                    <p><strong>Closed At:</strong> {new Date(ticket.closedAt).toLocaleString()}</p>
-                )}
+                <p className="text-green-600 mt-2 text-m font-medium"><strong>Assigned Engineer : </strong> {ticket.engineerName}</p>
+                <p className="text-green-600 mt-2 text-m font-medium"><strong>Engineer Contact Number :  </strong> {ticket.engineerContact}</p>
                 </div>
 
                 {/* Right Section (1/3): Comments */}

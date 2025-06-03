@@ -46,7 +46,6 @@ const History = () => {
       assignedEngineer: "Engineer B",
       status: "Closed",
     },
-    // More for demonstration
     {
       id: "#222333",
       subject: "Email setup",
@@ -76,7 +75,6 @@ const History = () => {
     },
   ];
 
-  // Exact status filter
   const filteredTickets = tickets.filter((ticket) => ticket.status === activeTab);
 
   const getBorderColor = (status: string) => {
@@ -102,6 +100,17 @@ const History = () => {
         return "text-purple-600";
       default:
         return "text-gray-600";
+    }
+  };
+
+  // Navigation based on status
+  const handleNavigate = (ticket: Ticket) => {
+    if (ticket.status === "Pending") {
+      navigate("/view-pending");
+    } else if (ticket.status === "Ongoing") {
+      navigate("/viewon");
+    } else if (ticket.status === "Closed") {
+      navigate("/view-closed");
     }
   };
 
@@ -148,7 +157,7 @@ const History = () => {
                 {filteredTickets.map((ticket) => (
                   <div
                     key={`${ticket.id}-${ticket.status}`}
-                    onClick={() => navigate("/view-history")}
+                    onClick={() => handleNavigate(ticket)}
                     className={`bg-white p-6 rounded-lg shadow border-l-8 ${getBorderColor(
                       ticket.status
                     )} flex justify-between items-start cursor-pointer`}
@@ -163,9 +172,7 @@ const History = () => {
                         Ticket Type: {ticket.ticketType}
                       </p>
                       <p className="text-sm text-gray-700">Description: {ticket.description}</p>
-                      <p className="text-sm text-gray-700">
-                        Created: {ticket.createdDate}
-                      </p>
+                      <p className="text-sm text-gray-700">Created: {ticket.createdDate}</p>
                       <p className="text-sm text-gray-600">
                         <span className="font-medium">Assigned Engineer:</span>{" "}
                         {ticket.status === "Pending" ? "Not Assigned" : ticket.assignedEngineer}

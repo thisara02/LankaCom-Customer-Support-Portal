@@ -2,14 +2,13 @@ import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 
-const ViewTicket = () => {
+const ViewClosed = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [commentText, setCommentText] = useState("");
 
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
-
-  // Sample data
+  // Sample closed ticket data
   const ticket = {
     id: "#784562",
     subject: "VPN Access Issue",
@@ -19,11 +18,11 @@ const ViewTicket = () => {
     requesterEmail: "thisaram@lankacom.net",
     requesterContact: "0785509917",
     createdAt: "2025-05-26T09:45:00Z",
-    status: "Ongoing",
+    status: "Closed", // Status is 'Closed'
     documents: ["vpn_error_screenshot.png"],
-    engineerName: "Engineer D",
-    engineerContact: "+1 987 654 3210",
-    closedAt: null,
+    engineerName: "Madura Jayasundara",
+    engineerContact: "0740563227",
+    closedAt: "2025-05-27T18:30:00Z", // Proper closedAt value
   };
 
   const comments = [
@@ -51,7 +50,7 @@ const ViewTicket = () => {
       timestamp: "2025-05-26T14:15:00Z",
       content: "Please prioritize, it’s impacting work.",
     },
-       {
+    {
       id: 1,
       author: "Engineer D",
       timestamp: "2025-05-26T12:00:00Z",
@@ -63,7 +62,6 @@ const ViewTicket = () => {
       timestamp: "2025-05-26T14:15:00Z",
       content: "Please prioritize, it’s impacting work.",
     },
-    
   ];
 
   return (
@@ -79,7 +77,8 @@ const ViewTicket = () => {
           {/* Header */}
           <div className="bg-white p-6 rounded-lg shadow-md mb-6">
             <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-              Ticket ID: <span className="text-teal-600">{ticket.id}</span>
+              Ticket ID:{" "}
+              <span className="text-teal-600">{ticket.id}</span>
             </h1>
           </div>
 
@@ -90,20 +89,20 @@ const ViewTicket = () => {
               <h2 className="text-xl font-semibold text-gray-800 border-b pb-2">Ticket Details</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                 <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-                    <p className="text-sm font-semibold text-gray-500">Requester Name</p>
-                    <p className="text-base font-medium text-gray-800">{ticket.requesterName}</p>
+                  <p className="text-sm font-semibold text-gray-500">Requester Name</p>
+                  <p className="text-base font-medium text-gray-800">{ticket.requesterName}</p>
                 </div>
 
                 <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-                    <p className="text-sm font-semibold text-gray-500">Email</p>
-                    <p className="text-base font-medium text-gray-800">{ticket.requesterEmail}</p>
+                  <p className="text-sm font-semibold text-gray-500">Email</p>
+                  <p className="text-base font-medium text-gray-800">{ticket.requesterEmail}</p>
                 </div>
 
                 <div className="bg-gray-50 p-4 rounded-md shadow-sm">
-                    <p className="text-sm font-semibold text-gray-500">Contact</p>
-                    <p className="text-base font-medium text-gray-800">{ticket.requesterContact}</p>
+                  <p className="text-sm font-semibold text-gray-500">Contact</p>
+                  <p className="text-base font-medium text-gray-800">{ticket.requesterContact}</p>
                 </div>
-            </div>
+              </div>
               <p className="text-gray-600 mt-2 text-m font-medium"><strong>Ticket Type:</strong> {ticket.type}</p>
               <p className="text-red-600 mt-2 text-lg font-medium"><strong>Inquiry Issue :</strong> {ticket.subject}</p>
               <p className="text-gray-600 mt-2 text-m font-medium"><strong>Description:</strong> {ticket.description}</p>
@@ -124,7 +123,9 @@ const ViewTicket = () => {
                 </>
               )}
               {ticket.status === "Closed" && ticket.closedAt && (
-                <p><strong>Closed At:</strong> {new Date(ticket.closedAt).toLocaleString()}</p>
+                <p className="text-gray-600 mt-2 text-m font-medium">
+                  <strong>Closed At:</strong> {new Date(ticket.closedAt).toLocaleString()}
+                </p>
               )}
             </div>
 
@@ -135,7 +136,7 @@ const ViewTicket = () => {
                 {comments.map((comment) => (
                   <div key={comment.id} className="bg-gray-100 p-3 rounded-md">
                     <p className="text-xs text-gray-500">
-                       {comment.author}, {new Date(comment.timestamp).toLocaleString()}
+                      {comment.author}, {new Date(comment.timestamp).toLocaleString()}
                     </p>
                     <p className="text-m text-gray-700 mb-1">{comment.content}</p>
                   </div>
@@ -171,4 +172,4 @@ const ViewTicket = () => {
   );
 };
 
-export default ViewTicket;
+export default ViewClosed;
