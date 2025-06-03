@@ -46,7 +46,7 @@ const Landing: React.FC = () => {
 
       {/* Overlay content */}
       <div className="absolute inset-0 flex flex-col bg-black bg-opacity-0 text-center px-8">
-        <h1 className="text-white text-9xl sm:text-6xl md:text-6xl font-bold font-jura animate-glow-text justify-center items-center text-center pt-80">
+        <h1 className="text-white text-9xl sm:text-9xl md:text-6xl font-bold font-jura animate-glow-text justify-center items-center text-center pt-80">
           Welcome
         </h1>
         <h1 className="text-white text-9xl sm:text-6xl md:text-6xl font-bold font-jura animate-glow-text justify-center items-center text-center">

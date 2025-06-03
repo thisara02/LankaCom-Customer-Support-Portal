@@ -33,9 +33,9 @@ import AdminResetPass from "./Pages/Admin/AdminResetPassword"
 import AdminViewPending from "./Pages/Admin/AdminViewPending"
 import AdminViewClosed from "./Pages/Admin/AdminViewClosed"
 import AdminViewOngoing from "./Pages/Admin/AdminViewOngoing"
-
-
-
+import EngDash from "./Pages/Engineer/EngDashboard"
+import EngForgotPass from "./Pages/Engineer/EngForgotPassword"
+import EngResetPass from "./Pages/Engineer/EngResetPassword"
 
 
 const App: React.FC = () => {
@@ -80,6 +80,9 @@ const App: React.FC = () => {
       
 
       <Route path="/eng-login" element={<EngLogin />} />
+      <Route path="/eng-dash" element={<EngDash />} />
+      <Route path="/eng-forgot" element={<EngForgotPass />} />
+      <Route path="/eng-reset" element={<EngResetPass />} />
       
     </Routes>
     </AnimatePresence>

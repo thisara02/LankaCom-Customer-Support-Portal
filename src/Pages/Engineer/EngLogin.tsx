@@ -65,7 +65,7 @@ const EngLogin = () => {
 
               <button
                 type="button"
-                onClick={() => navigate("/admin-dash")}
+                onClick={() => navigate("/eng-dash")}
                 className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition font-jura"
                 >
                 Login
@@ -73,7 +73,7 @@ const EngLogin = () => {
             </form>
 
             <div className="text-center mt-4">
-              <a href="/forgot-pass" className="text-green-900 text-sm hover:underline font-jura">
+              <a href="/eng-forgot" className="text-green-900 text-sm hover:underline font-jura">
                 Forgot Password?
               </a>
             </div>

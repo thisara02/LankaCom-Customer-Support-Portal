@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
-import BannerImage from "../../assets/banner.jpg";
+import BannerImage from "../../assets/about-banner-lcs.jpg";
 import { Link } from "react-router-dom";
 import { FaTicketAlt } from "react-icons/fa";
 
