@@ -25,21 +25,21 @@ const EngNav: React.FC<NavbarProps> = ({ toggleSidebar }) => {
           src={Logo}
           alt="Logo"
           className="h-10 cursor-pointer"
-          onClick={() => navigate("/admin-dash")}
+          onClick={() => navigate("/eng-dash")}
         />
       </div>
 
       {/* Right: Notifications */}
       <div className="flex items-center pr-6 relative" ref={dropdownRef}>
         <NavLink
-          to="/admin-notifi"
+          to="/eng-notifi"
           className={({ isActive }) =>
-            `relative text-black hover:text-blue-600 group text-xl p-2 transition
+            `relative text-black hover:text-green-600 group text-xl p-2 transition
             ${isActive ? "after:w-full" : ""}`
           }
         >
           <FaBell />
-          <span className="absolute left-0 -bottom-1 h-0.5 bg-blue-500 transition-all duration-300 w-0 group-hover:w-full"></span>
+          <span className="absolute left-0 -bottom-1 h-0.5 bg-green-500 transition-all duration-300 w-0 group-hover:w-full"></span>
         </NavLink>
       </div>
     </header>

@@ -36,6 +36,16 @@ import AdminViewOngoing from "./Pages/Admin/AdminViewOngoing"
 import EngDash from "./Pages/Engineer/EngDashboard"
 import EngForgotPass from "./Pages/Engineer/EngForgotPassword"
 import EngResetPass from "./Pages/Engineer/EngResetPassword"
+import EngProfile from "./Pages/Engineer/EngProfile"
+import EngNotification from "./Pages/Engineer/EngNotifications"
+import EngAssignedTicket from "./Pages/Engineer/EngMyTicket";
+import EngHistory from "./Pages/Engineer/EngHistory"
+import EngViewPending from "./Pages/Engineer/EngViewPending"
+import EngViewClosed from "./Pages/Engineer/EngViewClosed"
+import EngViewOngoing from "./Pages/Engineer/EngViewOngoing"
+import EngViewAssigned from "./Pages/Engineer/EngViewAssigned"
+import EngCloseTicket from "./Pages/Engineer/EngCloseTicket"
+import EngCustomerDetails from "./Pages/Engineer/EngCustomerDetails"
 
 
 const App: React.FC = () => {
@@ -83,6 +93,16 @@ const App: React.FC = () => {
       <Route path="/eng-dash" element={<EngDash />} />
       <Route path="/eng-forgot" element={<EngForgotPass />} />
       <Route path="/eng-reset" element={<EngResetPass />} />
+      <Route path="/eng-profile" element={<EngProfile />} />
+      <Route path="/eng-notifi" element={<EngNotification />} />
+      <Route path="/eng-myticket" element={<EngAssignedTicket />} />
+      <Route path="/eng-history" element={<EngHistory />} />
+      <Route path="/eng-view-closed" element={<EngViewClosed />} />
+      <Route path="/eng-view-pending" element={<EngViewPending />} />
+      <Route path="/eng-viewon" element={<EngViewOngoing />} />
+      <Route path="/eng-view-assign" element={<EngViewAssigned />} />
+      <Route path="/eng-close-ticket" element={<EngCloseTicket />} />
+      <Route path="/eng-cus-details" element={<EngCustomerDetails />} />
       
     </Routes>
     </AnimatePresence>

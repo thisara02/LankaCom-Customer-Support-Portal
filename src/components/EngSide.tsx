@@ -1,15 +1,15 @@
 import React from "react";
-import { FaHistory, FaTachometerAlt, FaUser, FaUserPlus} from "react-icons/fa";
-import Profile from "../assets/eng-logo.jpg";
+import { FaHistory, FaTachometerAlt} from "react-icons/fa";
+import Profile from "../assets/img1.jpg";
 import { useNavigate } from "react-router-dom";
-import { FaUserGroup } from "react-icons/fa6";
+import { FaTicket, FaUserGroup } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 
 // Sample user data — you can replace these with real props or context
 const user = {
-  name: "Thisara Madusanka",
-  email: "thisaram@lankacom.net",
+  name: "Madura Jayasundara",
+  email: "maduraj@lankacom.net",
   company:"Lanka Communication Services",
 };
 
@@ -58,7 +58,7 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
             src={Profile}
             alt="User"
             className="w-16 h-16 rounded-full object-cover border border-gray-300 mx-auto cursor-pointer mb-2"
-            onClick={() => navigate("/admin-profile")}
+            onClick={() => navigate("/eng-profile")}
         />
         
             <p className="font-semibold text-gray-800 text-base font-jura text-center">{user.name}</p>
@@ -84,42 +84,19 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
           </NavLink>
 
           <NavLink
-            to=""
+            to="/eng-myticket"
             className={({ isActive }) =>
               `relative flex items-center space-x-3 text-gray-800 transition font-jura
               hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
               ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
             }
           >
-            <FaUserPlus />
-            <span>Create Customer</span>
+            <FaTicket />
+            <span>Assigned Issues</span>
           </NavLink>
 
           <NavLink
-            to=""
-            className={({ isActive }) =>
-              `relative flex items-center space-x-3 text-gray-800 transition font-jura
-              hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
-              ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
-            }
-          >
-            <FaUserGroup />
-            <span>View Customer-list</span>
-          </NavLink>
-
-          <NavLink
-            to=""
-            className={({ isActive }) =>
-              `relative flex items-center space-x-3 text-gray-800 transition font-jura
-              hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
-              ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
-            }
-          >
-            <FaUser />
-            <span>Create Engineer</span>
-          </NavLink>
-          <NavLink
-            to=""
+            to="/eng-history"
             className={({ isActive }) =>
               `relative flex items-center space-x-3 text-gray-800 transition font-jura
               hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
@@ -127,13 +104,24 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
             }
           >
             <FaHistory />
-            <span>Ticket History</span>
+            <span>All Issues History</span>
+          </NavLink>
+          <NavLink
+            to="/eng-cus-details"
+            className={({ isActive }) =>
+              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
+              ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
+            }
+          >
+            <FaUserGroup />
+            <span>Customer Contacts</span>
           </NavLink>
         </nav>
 
         <div className="mt-auto pt-6">
           <button 
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200 font-jura"
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700 transition duration-200 font-jura"
           onClick={handleLogout}
           >
             Logout
