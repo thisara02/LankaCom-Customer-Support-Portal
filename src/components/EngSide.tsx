@@ -46,7 +46,7 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
     };
   return (
     <aside
-      className={`bg-[#f3fdf6] h-screen border-r shadow-md transition-all duration-300 ${
+      className={`bg-white h-screen  border-r shadow-md transition-all duration-300 ${
         isOpen ? "w-60" : "w-0 md:w-70"
       } overflow-hidden`}
     >
@@ -61,9 +61,9 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
             onClick={() => navigate("/eng-profile")}
         />
         
-            <p className="font-semibold text-gray-800 text-base font-jura text-center">{user.name}</p>
+            <p className="font-semibold text-black   text-base font-jura text-center">{user.name}</p>
             {/* <p className="text-gray-500 text-sm">{user.email}</p> */}
-            <p className="text-gray-500 text-sm font-jura">{user.company}</p>
+            <p className="text-black   text-sm font-jura">{user.email}</p>
             
         </div>
         </div>
@@ -74,7 +74,7 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
           <NavLink
             to="/eng-dash"
             className={({ isActive }) =>
-              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              `relative flex items-center space-x-3 text-black transition font-jura
               hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
               ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
             }
@@ -86,7 +86,7 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
           <NavLink
             to="/eng-myticket"
             className={({ isActive }) =>
-              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              `relative flex items-center space-x-3 text-black   transition font-jura
               hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
               ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
             }
@@ -98,7 +98,7 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
           <NavLink
             to="/eng-history"
             className={({ isActive }) =>
-              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              `relative flex items-center space-x-3 text-black   transition font-jura
               hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
               ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
             }
@@ -109,7 +109,7 @@ const EngSide: React.FC<SidebarProps> = ({ isOpen }) => {
           <NavLink
             to="/eng-cus-details"
             className={({ isActive }) =>
-              `relative flex items-center space-x-3 text-gray-800 transition font-jura
+              `relative flex items-center space-x-3 text-black   transition font-jura
               hover:text-green-600 after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:bg-green-500 after:transition-all after:duration-300
               ${isActive ? 'after:w-full text-green-600' : 'after:w-0 group-hover:after:w-full'}`
             }

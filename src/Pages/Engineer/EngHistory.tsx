@@ -19,6 +19,7 @@ const EngHistory = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [searchCompany, setSearchCompany] = useState("");
   const [searchTicketId, setSearchTicketId] = useState("");
+  const [searchStatus, setSearchStatus] = useState("");
   const navigate = useNavigate();
 
   const tickets: Ticket[] = [
@@ -83,11 +84,12 @@ const EngHistory = () => {
     },
   ];
 
-  // Filtered tickets based on search
+  // Filter tickets by all three criteria simultaneously
   const filteredTickets = tickets.filter(
     (ticket) =>
       ticket.Company.toLowerCase().includes(searchCompany.toLowerCase()) &&
-      ticket.id.toLowerCase().includes(searchTicketId.toLowerCase())
+      ticket.id.toLowerCase().includes(searchTicketId.toLowerCase()) &&
+      (searchStatus === "" || ticket.status === searchStatus)
   );
 
   const getBorderColor = (status: string) => {
@@ -132,10 +134,9 @@ const EngHistory = () => {
           <div className="mb-8 bg-white p-6 rounded-lg shadow-md mx-10 mt-5">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 border-b-4 inline-block pb-2 font-jura mb-6">
               Ticket History
-              
             </h1>
 
-            {/* Search Filters Only */}
+            {/* Filters */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-end mb-6 gap-4 text-black">
               <input
                 type="text"
@@ -151,6 +152,16 @@ const EngHistory = () => {
                 onChange={(e) => setSearchTicketId(e.target.value)}
                 className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
               />
+              <select
+                value={searchStatus}
+                onChange={(e) => setSearchStatus(e.target.value)}
+                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white"
+              >
+                <option value="">Any Status</option>
+                <option value="Pending">Pending</option>
+                <option value="Ongoing">Ongoing</option>
+                <option value="Closed">Closed</option>
+              </select>
             </div>
 
             {/* Tickets */}

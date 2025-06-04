@@ -12,7 +12,7 @@ const EngNav: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   const navigate = useNavigate();
 
   return (
-    <header className="w-full bg-[#F3F4F6] shadow-md flex items-center px-4 h-20 relative z-50 justify-between">
+    <header className="w-full bg-[#ffffff] shadow-md flex items-center px-4 h-20 relative z-50 justify-between">
       {/* Left: Hamburger + Logo */}
       <div className="flex items-center space-x-3 md:space-x-4">
         <button
