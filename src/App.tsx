@@ -24,6 +24,7 @@ import AdminDash from "./Pages/Admin/AdminDashboard"
 import EngLogin from "./Pages/Engineer/EngLogin"
 import AdminCreateCus from "./Pages/Admin/AdminCreateCus"
 import AdminCreateEng from "./Pages/Admin/AdminCreateEng"
+import AdminCreateAdmin from "./Pages/Admin/AdminCreateAdmin"
 import AdminNotification from "./Pages/Admin/AdminNotifications"
 import AdminProfile from "./Pages/Admin/AdminProfile"
 import AdminViewCus from "./Pages/Admin/AdminViewCus"
@@ -78,6 +79,7 @@ const App: React.FC = () => {
       <Route path="/admin-dash" element={<AdminDash />} />
       <Route path="/create-cus" element={<AdminCreateCus />} />
       <Route path="/create-eng" element={<AdminCreateEng />} />
+      <Route path="/create-admin" element={<AdminCreateAdmin />} />
       <Route path="/admin-notifi" element={<AdminNotification />} />
       <Route path="/admin-profile" element={<AdminProfile />} />
       <Route path="/admin-viewcus" element={<AdminViewCus />} />
